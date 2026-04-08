@@ -111,7 +111,7 @@ body {
 
 .hero-terminal {
     margin-top: 2rem;
-    max-width: 480px;
+    max-width: 620px;
     width: 100%;
 }
 
@@ -676,6 +676,12 @@ body {
 .terminal-copy:hover {
     color: var(--white);
     border-color: rgba(255,255,255,0.3);
+}
+
+.terminal-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.06);
+    margin: 0;
 }
 
 /* Footer */
