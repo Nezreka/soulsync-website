@@ -12,6 +12,20 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+// ===== GitHub Star Count =====
+fetch('https://api.github.com/repos/Nezreka/SoulSync')
+    .then(r => r.json())
+    .then(data => {
+        if (data.stargazers_count !== undefined) {
+            const el = document.getElementById('star-count');
+            if (el) {
+                el.innerHTML = `<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> ${data.stargazers_count}`;
+            }
+        }
+    })
+    .catch(() => {});
+
+
 // ===== Hero Particle Field =====
 function initHeroParticles() {
     const canvas = document.getElementById('hero-particles');
@@ -62,19 +76,22 @@ function initHeroParticles() {
             ctx.fill();
         });
 
-        // Draw faint connections for nearby particles
-        for (let i = 0; i < particles.length; i++) {
-            for (let j = i + 1; j < particles.length; j++) {
-                const dx = particles[i].x - particles[j].x;
-                const dy = particles[i].y - particles[j].y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-                if (dist < 120) {
-                    ctx.beginPath();
-                    ctx.moveTo(particles[i].x, particles[i].y);
-                    ctx.lineTo(particles[j].x, particles[j].y);
-                    ctx.strokeStyle = `rgba(255,255,255,${0.04 * (1 - dist / 120)})`;
-                    ctx.lineWidth = 0.5;
-                    ctx.stroke();
+        // Draw faint connections for nearby particles (skip on small screens)
+        if (w > 600) {
+            const maxCheck = Math.min(particles.length, 40);
+            for (let i = 0; i < maxCheck; i++) {
+                for (let j = i + 1; j < maxCheck; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 120) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(255,255,255,${0.04 * (1 - dist / 120)})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
                 }
             }
         }
