@@ -1,32 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SoulSync - Automated Music Discovery and Collection Manager</title>
-    <meta name="description" content="Automated music discovery and collection manager for Plex, Jellyfin, and Navidrome. The Lidarr alternative that actually works.">
+    <meta name="description"
+        content="Automated music discovery and collection manager for Plex, Jellyfin, and Navidrome. The Lidarr alternative that actually works.">
     <meta property="og:title" content="SoulSync - Automated Music Discovery">
-    <meta property="og:description" content="Spotify-quality music discovery for your self-hosted library. 10 metadata sources, 6 download engines, zero manual effort.">
+    <meta property="og:description"
+        content="Spotify-quality music discovery for your self-hosted library. 10 metadata sources, 6 download engines, zero manual effort.">
     <meta property="og:image" content="assets/trans.png">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://nezreka.github.io/soulsync-website/">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="SoulSync - Automated Music Discovery">
-    <meta name="twitter:description" content="Spotify-quality music discovery for your self-hosted library. The open-source Lidarr alternative.">
+    <meta name="twitter:description"
+        content="Spotify-quality music discovery for your self-hosted library. The open-source Lidarr alternative.">
     <meta name="theme-color" content="#000000">
     <link rel="icon" href="assets/trans.png" type="image/png">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <nav class="navbar">
         <div class="nav-container">
             <ul class="nav-links">
                 <li><a href="#features" class="nav-link">Features</a></li>
                 <li><a href="#integrations" class="nav-link">Integrations</a></li>
-                <li><a href="https://github.com/Nezreka/SoulSync" target="_blank" rel="noopener noreferrer" class="nav-link">GitHub</a></li>
+                <li><a href="https://github.com/Nezreka/SoulSync" target="_blank" rel="noopener noreferrer"
+                        class="nav-link">GitHub</a></li>
             </ul>
         </div>
     </nav>
@@ -47,29 +55,45 @@
                 <div class="terminal-body">
                     <span class="terminal-prompt">$</span>
                     <span class="terminal-cmd">git clone https://github.com/Nezreka/SoulSync.git</span>
-                    <button class="terminal-copy" title="Copy to clipboard" onclick="navigator.clipboard.writeText('git clone https://github.com/Nezreka/SoulSync.git')">
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                    <button class="terminal-copy" title="Copy to clipboard"
+                        onclick="navigator.clipboard.writeText('git clone https://github.com/Nezreka/SoulSync.git')">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" />
+                            <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
+                        </svg>
                     </button>
                 </div>
                 <div class="terminal-divider"></div>
                 <div class="terminal-body">
                     <span class="terminal-prompt">$</span>
-                    <span class="terminal-cmd">docker pull nezreka/soulsync:latest</span>
-                    <button class="terminal-copy" title="Copy to clipboard" onclick="navigator.clipboard.writeText('docker pull nezreka/soulsync:latest')">
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                    <span class="terminal-cmd">docker pull ghcr.io/nezreka/soulsync:latest</span>
+                    <button class="terminal-copy" title="Copy to clipboard"
+                        onclick="navigator.clipboard.writeText('docker pull ghcr.io/nezreka/soulsync:latest')">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" />
+                            <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
+                        </svg>
                     </button>
                 </div>
             </div>
             <div class="hero-actions">
-                <a href="https://github.com/Nezreka/SoulSync" target="_blank" rel="noopener noreferrer" class="hero-cta">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                <a href="https://github.com/Nezreka/SoulSync" target="_blank" rel="noopener noreferrer"
+                    class="hero-cta">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path
+                            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                    </svg>
                     View on GitHub
                 </a>
                 <span class="hero-stars" id="star-count"></span>
             </div>
         </div>
         <div class="scroll-indicator">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+            </svg>
         </div>
     </section>
 
@@ -83,88 +107,167 @@
             <div class="features-grid">
                 <div class="feature-card reveal">
                     <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                            <polyline points="7 10 12 15 17 10" />
+                            <line x1="12" y1="15" x2="12" y2="3" />
+                        </svg>
                     </div>
                     <h3>6 Download Sources</h3>
-                    <p>Download from Soulseek, YouTube, Tidal, Qobuz, HiFi, and Deezer. Hybrid mode tries each source in priority order with automatic fallback. Every download is tagged, organized, and verified.</p>
+                    <p>Download from Soulseek, YouTube, Tidal, Qobuz, HiFi, and Deezer. Hybrid mode tries each source in
+                        priority order with automatic fallback. Every download is tagged, organized, and verified.</p>
                 </div>
                 <div class="feature-card reveal">
                     <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                            <circle cx="12" cy="12" r="3" />
+                        </svg>
                     </div>
                     <h3>Watchlist & Auto-Downloads</h3>
-                    <p>Follow artists and automatically scan for new releases. New albums and singles are detected, matched, and downloaded without manual effort. Configurable per artist — albums only, singles, EPs, or everything.</p>
+                    <p>Follow artists and automatically scan for new releases. New albums and singles are detected,
+                        matched, and downloaded without manual effort. Configurable per artist — albums only, singles,
+                        EPs, or everything.</p>
                 </div>
                 <div class="feature-card reveal">
                     <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 11a9 9 0 0118 0"/><path d="M4 11V8"/><path d="M22 11V8"/><circle cx="9" cy="18" r="3"/><circle cx="15" cy="18" r="3"/><path d="M9 15V11"/><path d="M15 15V11"/></svg>
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M4 11a9 9 0 0118 0" />
+                            <path d="M4 11V8" />
+                            <path d="M22 11V8" />
+                            <circle cx="9" cy="18" r="3" />
+                            <circle cx="15" cy="18" r="3" />
+                            <path d="M9 15V11" />
+                            <path d="M15 15V11" />
+                        </svg>
                     </div>
                     <h3>Playlist Sync</h3>
-                    <p>Import playlists from Spotify, Tidal, Deezer, YouTube, and Beatport. Tracks are matched to official metadata and synced to your Plex, Jellyfin, or Navidrome server. Playlists stay mirrored and can be refreshed.</p>
+                    <p>Import playlists from Spotify, Tidal, Deezer, YouTube, and Beatport. Tracks are matched to
+                        official metadata and synced to your Plex, Jellyfin, or Navidrome server. Playlists stay
+                        mirrored and can be refreshed.</p>
                 </div>
                 <div class="feature-card reveal">
                     <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                            <line x1="11" y1="8" x2="11" y2="14" />
+                            <line x1="8" y1="11" x2="14" y2="11" />
+                        </svg>
                     </div>
                     <h3>Artist Discovery</h3>
-                    <p>Interactive artist maps, genre deep-dives, similar artist networks, and decade browsing. Personalized playlists like Release Radar and Discovery Weekly generated from your library and listening data.</p>
+                    <p>Interactive artist maps, genre deep-dives, similar artist networks, and decade browsing.
+                        Personalized playlists like Release Radar and Discovery Weekly generated from your library and
+                        listening data.</p>
                 </div>
                 <div class="feature-card reveal">
                     <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                            <path d="M2 17l10 5 10-5" />
+                            <path d="M2 12l10 5 10-5" />
+                        </svg>
                     </div>
                     <h3>10 Metadata Sources</h3>
-                    <p>Enrichment workers pull from Spotify, Apple Music, Deezer, Discogs, MusicBrainz, AudioDB, Last.fm, Genius, Tidal, and Qobuz. Every artist, album, and track gets the richest possible metadata automatically.</p>
+                    <p>Enrichment workers pull from Spotify, Apple Music, Deezer, Discogs, MusicBrainz, AudioDB,
+                        Last.fm, Genius, Tidal, and Qobuz. Every artist, album, and track gets the richest possible
+                        metadata automatically.</p>
                 </div>
                 <div class="feature-card reveal">
                     <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg>
                     </div>
                     <h3>Download Verification</h3>
-                    <p>AcoustID audio fingerprinting verifies every download matches the expected track. Wrong files are quarantined automatically. Streaming source matching uses artist gating to reject incorrect results before download.</p>
+                    <p>AcoustID audio fingerprinting verifies every download matches the expected track. Wrong files are
+                        quarantined automatically. Streaming source matching uses artist gating to reject incorrect
+                        results before download.</p>
                 </div>
                 <div class="feature-card reveal">
                     <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+                            <line x1="4" y1="22" x2="4" y2="15" />
+                        </svg>
                     </div>
                     <h3>Library Management</h3>
-                    <p>Enhanced library manager with inline editing, bulk tag writing, and 16 automated repair jobs. Smart delete, track redownload, orphan detection, fake lossless detection, and metadata gap filling.</p>
+                    <p>Enhanced library manager with inline editing, bulk tag writing, and 16 automated repair jobs.
+                        Smart delete, track redownload, orphan detection, fake lossless detection, and metadata gap
+                        filling.</p>
                 </div>
                 <div class="feature-card reveal">
                     <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <rect x="3" y="3" width="18" height="18" rx="2" />
+                            <path d="M3 9h18M9 3v18" />
+                        </svg>
                     </div>
                     <h3>Automation Engine</h3>
-                    <p>Visual WHEN/DO/THEN workflow builder. Schedule scans, chain downloads to notifications, fire signals between automations. Discord, Telegram, and Pushbullet alerts built in.</p>
+                    <p>Visual WHEN/DO/THEN workflow builder. Schedule scans, chain downloads to notifications, fire
+                        signals between automations. Discord, Telegram, and Pushbullet alerts built in.</p>
                 </div>
 
                 <div class="feature-card reveal">
                     <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                        </svg>
                     </div>
                     <h3>Listening Stats</h3>
-                    <p>Library analytics with genre distribution, top artists and albums, listening timeline. Last.fm and ListenBrainz scrobbling. Full download history with source provenance tracking.</p>
+                    <p>Library analytics with genre distribution, top artists and albums, listening timeline. Last.fm
+                        and ListenBrainz scrobbling. Full download history with source provenance tracking.</p>
                 </div>
                 <div class="feature-card reveal">
                     <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M9 18V5l12-2v13" />
+                            <circle cx="6" cy="18" r="3" />
+                            <circle cx="18" cy="16" r="3" />
+                        </svg>
                     </div>
                     <h3>Audio Processing</h3>
-                    <p>Automatic metadata tagging, cover art embedding, and file organization with customizable path templates. Lossy copy creation, synchronized lyrics via LRClib, and multi-disc album handling.</p>
+                    <p>Automatic metadata tagging, cover art embedding, and file organization with customizable path
+                        templates. Lossy copy creation, synchronized lyrics via LRClib, and multi-disc album handling.
+                    </p>
                 </div>
                 <div class="feature-card reveal">
                     <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M23 21v-2a4 4 0 00-3-3.87" />
+                            <path d="M16 3.13a4 4 0 010 7.75" />
+                        </svg>
                     </div>
                     <h3>Multi-Profile</h3>
-                    <p>Netflix-style profiles with separate watchlists, wishlists, and discovery pools. PIN protection, per-profile page access controls, and individual home page preferences. Shared library, separate personalization.</p>
+                    <p>Netflix-style profiles with separate watchlists, wishlists, and discovery pools. PIN protection,
+                        per-profile page access controls, and individual home page preferences. Shared library, separate
+                        personalization.</p>
                 </div>
                 <div class="feature-card reveal">
                     <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/></svg>
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M16 18l6-6-6-6" />
+                            <path d="M8 6l-6 6 6 6" />
+                        </svg>
                     </div>
                     <h3>80+ API Endpoints</h3>
-                    <p>Full REST API powering every feature. Search, download, manage artists, trigger automations, query stats, and control playback programmatically. Build your own integrations or automate with scripts.</p>
+                    <p>Full REST API powering every feature. Search, download, manage artists, trigger automations,
+                        query stats, and control playback programmatically. Build your own integrations or automate with
+                        scripts.</p>
                 </div>
             </div>
         </div>
@@ -179,121 +282,143 @@
             <div class="dual-panel dual-panel-left">
                 <h2 class="section-heading reveal">Metadata Enrichment</h2>
                 <p class="section-subheading reveal">10 enrichment workers pulling from every major music database.</p>
-            <div class="orbital-wrap">
-                <canvas class="orbital-canvas" id="canvas-metadata"></canvas>
-                <div class="orbital" id="orbit-metadata" data-speed="90">
-                    <div class="orbital-center">
-                        <img src="assets/trans.png" alt="SoulSync" class="orbital-logo">
-                        <div class="orbital-pulse"></div>
-                    </div>
-                    <div class="orbit-ring">
-                        <div class="service-node" data-angle="0" data-color="#1DB954">
-                            <div class="node-icon"><img src="https://cdn.simpleicons.org/spotify/1DB954" alt="Spotify"></div>
-                            <span class="node-label">Spotify</span>
+                <div class="orbital-wrap">
+                    <canvas class="orbital-canvas" id="canvas-metadata"></canvas>
+                    <div class="orbital" id="orbit-metadata" data-speed="90">
+                        <div class="orbital-center">
+                            <img src="assets/trans.png" alt="SoulSync" class="orbital-logo">
+                            <div class="orbital-pulse"></div>
                         </div>
-                        <div class="service-node" data-angle="36" data-color="#FC3C44">
-                            <div class="node-icon"><img src="https://cdn.simpleicons.org/applemusic/FC3C44" alt="Apple Music"></div>
-                            <span class="node-label">Apple Music</span>
-                        </div>
-                        <div class="service-node" data-angle="72" data-color="#A238FF">
-                            <div class="node-icon"><img src="https://cdn.simpleicons.org/deezer/A238FF" alt="Deezer"></div>
-                            <span class="node-label">Deezer</span>
-                        </div>
-                        <div class="service-node" data-angle="108" data-color="#D51007">
-                            <div class="node-icon"><img src="https://cdn.simpleicons.org/lastdotfm/D51007" alt="Last.fm"></div>
-                            <span class="node-label">Last.fm</span>
-                        </div>
-                        <div class="service-node" data-angle="144" data-color="#FFFF64">
-                            <div class="node-icon"><img src="https://cdn.simpleicons.org/genius/FFFF64" alt="Genius"></div>
-                            <span class="node-label">Genius</span>
-                        </div>
-                        <div class="service-node" data-angle="180" data-color="#BA478F">
-                            <div class="node-icon"><img src="https://cdn.simpleicons.org/musicbrainz/BA478F" alt="MusicBrainz"></div>
-                            <span class="node-label">MusicBrainz</span>
-                        </div>
-                        <div class="service-node" data-angle="216" data-color="#00B4D8">
-                            <div class="node-icon"><img src="data:image/png;base64,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" alt="AudioDB" class="real-logo"></div>
-                            <span class="node-label">AudioDB</span>
-                        </div>
-                        <div class="service-node" data-angle="252" data-color="#00FFFF">
-                            <div class="node-icon"><img src="https://cdn.simpleicons.org/tidal/00FFFF" alt="Tidal"></div>
-                            <span class="node-label">Tidal</span>
-                        </div>
-                        <div class="service-node" data-angle="288" data-color="#4285F4">
-                            <div class="node-icon"><img src="https://www.svgrepo.com/show/504778/qobuz.svg" alt="Qobuz" class="real-logo invert-logo"></div>
-                            <span class="node-label">Qobuz</span>
-                        </div>
-                        <div class="service-node" data-angle="324" data-color="#FF5722">
-                            <div class="node-icon"><img src="https://cdn.simpleicons.org/discogs/FF5722" alt="Discogs"></div>
-                            <span class="node-label">Discogs</span>
+                        <div class="orbit-ring">
+                            <div class="service-node" data-angle="0" data-color="#1DB954">
+                                <div class="node-icon"><img src="https://cdn.simpleicons.org/spotify/1DB954"
+                                        alt="Spotify"></div>
+                                <span class="node-label">Spotify</span>
+                            </div>
+                            <div class="service-node" data-angle="36" data-color="#FC3C44">
+                                <div class="node-icon"><img src="https://cdn.simpleicons.org/applemusic/FC3C44"
+                                        alt="Apple Music"></div>
+                                <span class="node-label">Apple Music</span>
+                            </div>
+                            <div class="service-node" data-angle="72" data-color="#A238FF">
+                                <div class="node-icon"><img src="https://cdn.simpleicons.org/deezer/A238FF"
+                                        alt="Deezer"></div>
+                                <span class="node-label">Deezer</span>
+                            </div>
+                            <div class="service-node" data-angle="108" data-color="#D51007">
+                                <div class="node-icon"><img src="https://cdn.simpleicons.org/lastdotfm/D51007"
+                                        alt="Last.fm"></div>
+                                <span class="node-label">Last.fm</span>
+                            </div>
+                            <div class="service-node" data-angle="144" data-color="#FFFF64">
+                                <div class="node-icon"><img src="https://cdn.simpleicons.org/genius/FFFF64"
+                                        alt="Genius"></div>
+                                <span class="node-label">Genius</span>
+                            </div>
+                            <div class="service-node" data-angle="180" data-color="#BA478F">
+                                <div class="node-icon"><img src="https://cdn.simpleicons.org/musicbrainz/BA478F"
+                                        alt="MusicBrainz"></div>
+                                <span class="node-label">MusicBrainz</span>
+                            </div>
+                            <div class="service-node" data-angle="216" data-color="#00B4D8">
+                                <div class="node-icon"><img
+                                        src="data:image/png;base64,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"
+                                        alt="AudioDB" class="real-logo"></div>
+                                <span class="node-label">AudioDB</span>
+                            </div>
+                            <div class="service-node" data-angle="252" data-color="#00FFFF">
+                                <div class="node-icon"><img src="https://cdn.simpleicons.org/tidal/00FFFF" alt="Tidal">
+                                </div>
+                                <span class="node-label">Tidal</span>
+                            </div>
+                            <div class="service-node" data-angle="288" data-color="#4285F4">
+                                <div class="node-icon"><img src="https://www.svgrepo.com/show/504778/qobuz.svg"
+                                        alt="Qobuz" class="real-logo invert-logo"></div>
+                                <span class="node-label">Qobuz</span>
+                            </div>
+                            <div class="service-node" data-angle="324" data-color="#FF5722">
+                                <div class="node-icon"><img src="https://cdn.simpleicons.org/discogs/FF5722"
+                                        alt="Discogs"></div>
+                                <span class="node-label">Discogs</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             </div>
 
             <!-- Right half: Servers & Sources -->
             <div class="dual-panel dual-panel-right">
                 <h2 class="section-heading reveal">Servers & Sources</h2>
                 <p class="section-subheading reveal">Downloads flow in. Music flows out to your servers.</p>
-            <div class="pipeline-wrap">
-                <canvas class="pipeline-canvas" id="canvas-pipeline"></canvas>
-                <!-- Left: Download Sources -->
-                <div class="pipeline-col pipeline-left">
-                    <h3 class="pipeline-col-title reveal">Download Sources</h3>
-                    <div class="pipeline-node" data-color="#4A90A4" data-side="left">
-                        <div class="pipeline-node-icon"><img src="https://www.slsknet.org/news/sites/default/files/slsk_bird.jpg" alt="Soulseek" class="real-logo"></div>
-                        <span class="pipeline-node-label">Soulseek</span>
+                <div class="pipeline-wrap">
+                    <canvas class="pipeline-canvas" id="canvas-pipeline"></canvas>
+                    <!-- Left: Download Sources -->
+                    <div class="pipeline-col pipeline-left">
+                        <h3 class="pipeline-col-title reveal">Download Sources</h3>
+                        <div class="pipeline-node" data-color="#4A90A4" data-side="left">
+                            <div class="pipeline-node-icon"><img
+                                    src="https://www.slsknet.org/news/sites/default/files/slsk_bird.jpg" alt="Soulseek"
+                                    class="real-logo"></div>
+                            <span class="pipeline-node-label">Soulseek</span>
+                        </div>
+                        <div class="pipeline-node" data-color="#00FFFF" data-side="left">
+                            <div class="pipeline-node-icon"><img src="https://cdn.simpleicons.org/tidal/00FFFF"
+                                    alt="Tidal"></div>
+                            <span class="pipeline-node-label">Tidal</span>
+                        </div>
+                        <div class="pipeline-node" data-color="#4285F4" data-side="left">
+                            <div class="pipeline-node-icon"><img src="https://www.svgrepo.com/show/504778/qobuz.svg"
+                                    alt="Qobuz" class="real-logo invert-logo"></div>
+                            <span class="pipeline-node-label">Qobuz</span>
+                        </div>
+                        <div class="pipeline-node" data-color="#A238FF" data-side="left">
+                            <div class="pipeline-node-icon"><img src="https://cdn.simpleicons.org/deezer/A238FF"
+                                    alt="Deezer"></div>
+                            <span class="pipeline-node-label">Deezer</span>
+                        </div>
+                        <div class="pipeline-node" data-color="#FF6B35" data-side="left">
+                            <div class="pipeline-node-icon node-icon-text" style="background:#FF6B35; font-size:0.6rem">
+                                HiFi</div>
+                            <span class="pipeline-node-label">HiFi</span>
+                        </div>
+                        <div class="pipeline-node" data-color="#FF0000" data-side="left">
+                            <div class="pipeline-node-icon"><img src="https://cdn.simpleicons.org/youtube/FF0000"
+                                    alt="YouTube"></div>
+                            <span class="pipeline-node-label">YouTube</span>
+                        </div>
                     </div>
-                    <div class="pipeline-node" data-color="#00FFFF" data-side="left">
-                        <div class="pipeline-node-icon"><img src="https://cdn.simpleicons.org/tidal/00FFFF" alt="Tidal"></div>
-                        <span class="pipeline-node-label">Tidal</span>
+                    <!-- Center: SoulSync -->
+                    <div class="pipeline-center">
+                        <img src="assets/trans.png" alt="SoulSync" class="pipeline-logo">
+                        <div class="pipeline-pulse"></div>
                     </div>
-                    <div class="pipeline-node" data-color="#4285F4" data-side="left">
-                        <div class="pipeline-node-icon"><img src="https://www.svgrepo.com/show/504778/qobuz.svg" alt="Qobuz" class="real-logo invert-logo"></div>
-                        <span class="pipeline-node-label">Qobuz</span>
-                    </div>
-                    <div class="pipeline-node" data-color="#A238FF" data-side="left">
-                        <div class="pipeline-node-icon"><img src="https://cdn.simpleicons.org/deezer/A238FF" alt="Deezer"></div>
-                        <span class="pipeline-node-label">Deezer</span>
-                    </div>
-                    <div class="pipeline-node" data-color="#FF6B35" data-side="left">
-                        <div class="pipeline-node-icon node-icon-text" style="background:#FF6B35; font-size:0.6rem">HiFi</div>
-                        <span class="pipeline-node-label">HiFi</span>
-                    </div>
-                    <div class="pipeline-node" data-color="#FF0000" data-side="left">
-                        <div class="pipeline-node-icon"><img src="https://cdn.simpleicons.org/youtube/FF0000" alt="YouTube"></div>
-                        <span class="pipeline-node-label">YouTube</span>
-                    </div>
-                </div>
-                <!-- Center: SoulSync -->
-                <div class="pipeline-center">
-                    <img src="assets/trans.png" alt="SoulSync" class="pipeline-logo">
-                    <div class="pipeline-pulse"></div>
-                </div>
-                <!-- Right: Media Servers -->
-                <div class="pipeline-col pipeline-right">
-                    <h3 class="pipeline-col-title reveal">Media Servers</h3>
-                    <div class="pipeline-node" data-color="#E5A00D" data-side="right">
-                        <div class="pipeline-node-icon"><img src="https://cdn.simpleicons.org/plex/E5A00D" alt="Plex"></div>
-                        <span class="pipeline-node-label">Plex</span>
-                    </div>
-                    <div class="pipeline-node" data-color="#00A4DC" data-side="right">
-                        <div class="pipeline-node-icon"><img src="https://cdn.simpleicons.org/jellyfin/00A4DC" alt="Jellyfin"></div>
-                        <span class="pipeline-node-label">Jellyfin</span>
-                    </div>
-                    <div class="pipeline-node" data-color="#0A6BC4" data-side="right">
-                        <div class="pipeline-node-icon"><img src="https://tweakers.net/ext/i/2007323764.png" alt="Navidrome" class="real-logo"></div>
-                        <span class="pipeline-node-label">Navidrome</span>
-                    </div>
-                    <div class="pipeline-node" data-color="#52B54B" data-side="right">
-                        <div class="pipeline-node-icon"><img src="https://cdn.simpleicons.org/emby/52B54B" alt="Emby"></div>
-                        <span class="pipeline-node-label">Emby</span>
-                        <span class="pipeline-node-badge">unofficial</span>
+                    <!-- Right: Media Servers -->
+                    <div class="pipeline-col pipeline-right">
+                        <h3 class="pipeline-col-title reveal">Media Servers</h3>
+                        <div class="pipeline-node" data-color="#E5A00D" data-side="right">
+                            <div class="pipeline-node-icon"><img src="https://cdn.simpleicons.org/plex/E5A00D"
+                                    alt="Plex"></div>
+                            <span class="pipeline-node-label">Plex</span>
+                        </div>
+                        <div class="pipeline-node" data-color="#00A4DC" data-side="right">
+                            <div class="pipeline-node-icon"><img src="https://cdn.simpleicons.org/jellyfin/00A4DC"
+                                    alt="Jellyfin"></div>
+                            <span class="pipeline-node-label">Jellyfin</span>
+                        </div>
+                        <div class="pipeline-node" data-color="#0A6BC4" data-side="right">
+                            <div class="pipeline-node-icon"><img src="https://tweakers.net/ext/i/2007323764.png"
+                                    alt="Navidrome" class="real-logo"></div>
+                            <span class="pipeline-node-label">Navidrome</span>
+                        </div>
+                        <div class="pipeline-node" data-color="#52B54B" data-side="right">
+                            <div class="pipeline-node-icon"><img src="https://cdn.simpleicons.org/emby/52B54B"
+                                    alt="Emby"></div>
+                            <span class="pipeline-node-label">Emby</span>
+                            <span class="pipeline-node-badge">unofficial</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
 
     <div class="section-glow-divider"></div>
@@ -302,8 +427,12 @@
     <footer class="footer">
         <div class="section-container">
             <div class="footer-content">
-                <a href="https://github.com/Nezreka/SoulSync" target="_blank" rel="noopener noreferrer" class="footer-github">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                <a href="https://github.com/Nezreka/SoulSync" target="_blank" rel="noopener noreferrer"
+                    class="footer-github">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path
+                            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                    </svg>
                     Nezreka/SoulSync
                 </a>
                 <p class="footer-text">Open source. Free forever. Built for self-hosters.</p>
@@ -315,4 +444,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
