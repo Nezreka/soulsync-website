@@ -6,19 +6,19 @@
         crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SoulSync - Automated Music Discovery and Collection Manager</title>
+    <title>SoulSync - Automated Music &amp; Video Discovery and Collection Manager</title>
     <meta name="description"
-        content="Automated music discovery and collection manager for Plex, Jellyfin, and Navidrome. The Lidarr alternative that actually works.">
-    <meta property="og:title" content="SoulSync - Automated Music Discovery">
+        content="Automated music and video discovery and collection manager for Plex and Jellyfin. Music (the Lidarr alternative) plus a full movies, TV, and YouTube side (Radarr/Sonarr-class) that actually works.">
+    <meta property="og:title" content="SoulSync - Automated Music &amp; Video Discovery">
     <meta property="og:description"
-        content="Spotify-quality music discovery for your self-hosted library. 10 metadata sources, 6 download engines, zero manual effort.">
+        content="Spotify-quality music discovery plus a full video side (movies, TV, YouTube) for your self-hosted library. The open-source Lidarr, Radarr, and Sonarr alternative.">
     <meta property="og:image" content="assets/trans.png">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://nezreka.github.io/soulsync-website/">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SoulSync - Automated Music Discovery">
+    <meta name="twitter:title" content="SoulSync - Automated Music &amp; Video Discovery">
     <meta name="twitter:description"
-        content="Spotify-quality music discovery for your self-hosted library. The open-source Lidarr alternative.">
+        content="Spotify-quality music discovery plus a full video side (movies, TV, YouTube) for your self-hosted library. The open-source Lidarr, Radarr, and Sonarr alternative.">
     <meta name="theme-color" content="#000000">
     <link rel="icon" href="assets/trans.png" type="image/png">
     <link rel="stylesheet" href="style.css">
@@ -33,7 +33,8 @@
     <nav class="navbar">
         <div class="nav-container">
             <ul class="nav-links">
-                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#features" class="nav-link">Music</a></li>
+                <li><a href="#video" class="nav-link">Video</a></li>
                 <li><a href="#integrations" class="nav-link">Integrations</a></li>
                 <li><a href="https://github.com/Nezreka/SoulSync" target="_blank" rel="noopener noreferrer"
                         class="nav-link">GitHub</a></li>
@@ -47,7 +48,7 @@
         <div class="hero-content reveal">
             <img src="assets/trans.png" alt="SoulSync Logo" class="hero-logo">
             <h1 class="hero-title">SoulSync</h1>
-            <p class="hero-tagline">Automated Music Discovery and Collection Manager</p>
+            <p class="hero-tagline">Automated Music &amp; Video Discovery and Collection Manager</p>
             <div class="hero-terminal">
                 <div class="terminal-bar">
                     <span class="terminal-dot" style="background:#ff5f57"></span>
@@ -104,6 +105,7 @@
     <!-- Features -->
     <section id="features" class="section features-section">
         <div class="section-container">
+            <span class="section-eyebrow reveal">Music</span>
             <h2 class="section-heading reveal">What SoulSync Does</h2>
             <p class="section-subheading reveal">Everything you need to manage a self-hosted music library.</p>
             <div class="features-grid">
@@ -421,6 +423,224 @@
                     </div>
                 </div>
             </div>
+    </section>
+
+    <div class="section-glow-divider"></div>
+
+    <!-- Video -->
+    <section id="video" class="section features-section">
+        <div class="section-container">
+            <span class="section-eyebrow reveal">Video</span>
+            <h2 class="section-heading reveal">Movies, TV &amp; YouTube</h2>
+            <p class="section-subheading reveal">A whole video side, isolated from music, with its own library, calendar,
+                and download pipeline. The self-hosted Radarr and Sonarr alternative, built in.</p>
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18" />
+                            <line x1="7" y1="2" x2="7" y2="22" />
+                            <line x1="17" y1="2" x2="17" y2="22" />
+                            <line x1="2" y1="12" x2="22" y2="12" />
+                            <line x1="2" y1="7" x2="7" y2="7" />
+                            <line x1="2" y1="17" x2="7" y2="17" />
+                            <line x1="17" y1="17" x2="22" y2="17" />
+                            <line x1="17" y1="7" x2="22" y2="7" />
+                        </svg>
+                    </div>
+                    <h3>Isolated Video Library</h3>
+                    <p>Its own database, dashboard, search, and TV calendar for movies, TV, and YouTube. Works with Plex
+                        and Jellyfin, with per-server isolation, and never touches your music side.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                            <path d="M2 17l10 5 10-5" />
+                            <path d="M2 12l10 5 10-5" />
+                        </svg>
+                    </div>
+                    <h3>Movie &amp; TV Enrichment</h3>
+                    <p>TMDB, TVDB, and OMDb matching plus 10 background workers — fanart.tv, OpenSubtitles, Trakt, TVmaze,
+                        AniList, and more. Ratings, artwork, cast, and episode data filled automatically, gap-fill only.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                            <polyline points="7 10 12 15 17 10" />
+                            <line x1="12" y1="15" x2="12" y2="3" />
+                        </svg>
+                    </div>
+                    <h3>Follow &rarr; Wishlist &rarr; Download</h3>
+                    <p>Follow shows, actors, directors, studios (Disney = Pixar + Marvel + Lucasfilm), and YouTube
+                        channels. Anything you don't own is wishlisted and grabbed automatically, forward-looking up to
+                        a year out.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10" />
+                            <circle cx="12" cy="12" r="3" />
+                            <line x1="22" y1="12" x2="18" y2="12" />
+                            <line x1="6" y1="12" x2="2" y2="12" />
+                            <line x1="12" y1="6" x2="12" y2="2" />
+                            <line x1="12" y1="22" x2="12" y2="18" />
+                        </svg>
+                    </div>
+                    <h3>Radarr / Sonarr-Class Matching</h3>
+                    <p>Quality-profile ladders with cutoff, upgrade-until-cutoff, and reject rules. Release title and
+                        TMDB-alias gating so you never grab the wrong film. Soulseek, Prowlarr indexers, and yt-dlp.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                            <line x1="16" y1="2" x2="16" y2="6" />
+                            <line x1="8" y1="2" x2="8" y2="6" />
+                            <line x1="3" y1="10" x2="21" y2="10" />
+                        </svg>
+                    </div>
+                    <h3>TV Calendar</h3>
+                    <p>A real week grid with air times and a billboard. Wishlist an airing episode straight from the
+                        modal, or auto-grab today's airings Sonarr-style. Nightly schedule refresh keeps it current.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                            <circle cx="8.5" cy="8.5" r="1.5" />
+                            <polyline points="21 15 16 10 5 21" />
+                        </svg>
+                    </div>
+                    <h3>Overlay Studio</h3>
+                    <p>A Kometa-style visual overlay editor that paints resolution, rating, and provider badges onto your
+                        Plex and Jellyfin posters. Nightly re-apply, and it skips anything unchanged.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <rect x="3" y="3" width="7" height="7" />
+                            <rect x="14" y="3" width="7" height="7" />
+                            <rect x="14" y="14" width="7" height="7" />
+                            <rect x="3" y="14" width="7" height="7" />
+                        </svg>
+                    </div>
+                    <h3>Collection Manager</h3>
+                    <p>Build Plex Collections and Jellyfin BoxSets from smart filters and ranked lists — IMDb, TMDB,
+                        Trakt, and MDBList — rendered in true rank order, not by year. Franchise auto-backfill included.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <rect x="2" y="3" width="20" height="18" rx="2" ry="2" />
+                            <polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none" />
+                        </svg>
+                    </div>
+                    <h3>YouTube Channels</h3>
+                    <p>Follow channels and playlists as shows (yt-dlp, no API key). Long-form only, per-channel keep
+                        windows, and true downloaded-state tracking so nothing re-downloads.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                        </svg>
+                    </div>
+                    <h3>Server Activity</h3>
+                    <p>A Tautulli-style live now-playing drawer for Plex and Jellyfin: streams pushed over websocket,
+                        watch history, statistics, and terminate-a-stream. Click any stream to open it inside SoulSync.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path
+                                d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" />
+                        </svg>
+                    </div>
+                    <h3>Library Maintenance</h3>
+                    <p>Repair jobs for broken files, duplicates, metadata gaps, and missing episodes. Plus bulk metadata
+                        editing with per-field locking, re-identify, a download history archive, and an issues system.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <rect x="3" y="3" width="18" height="18" rx="2" />
+                            <path d="M3 9h18M9 3v18" />
+                        </svg>
+                    </div>
+                    <h3>Video Automations</h3>
+                    <p>A visual automation engine for the video side: scheduled scans, the whole watchlist &rarr; wishlist
+                        &rarr; download pipeline, nightly overlay and collection sync, and event triggers on its own
+                        shared engine.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                    </div>
+                    <h3>Discover</h3>
+                    <p>Progressive, Netflix-feel search across movies, shows, people, studios, and YouTube. Plus
+                        trending, similar titles, and complete-your-collection gap-finding for your franchises.</p>
+                </div>
+            </div>
+
+            <!-- Video download pipeline -->
+            <div class="pipeline-wrap video-pipeline-wrap reveal">
+                <canvas class="pipeline-canvas" id="canvas-video-pipeline"></canvas>
+                <div class="pipeline-col pipeline-left">
+                    <h3 class="pipeline-col-title reveal">Download Sources</h3>
+                    <div class="pipeline-node" data-color="#4A90A4" data-side="left">
+                        <div class="pipeline-node-icon"><img
+                                src="https://www.slsknet.org/news/sites/default/files/slsk_bird.jpg" alt="Soulseek"
+                                class="real-logo"></div>
+                        <span class="pipeline-node-label">Soulseek</span>
+                    </div>
+                    <div class="pipeline-node" data-color="#B48EAD" data-side="left">
+                        <div class="pipeline-node-icon"><img
+                                src="https://raw.githubusercontent.com/Prowlarr/Prowlarr/develop/Logo/128.png"
+                                alt="Prowlarr" class="real-logo"></div>
+                        <span class="pipeline-node-label">Prowlarr</span>
+                    </div>
+                    <div class="pipeline-node" data-color="#FF0000" data-side="left">
+                        <div class="pipeline-node-icon"><img src="https://cdn.simpleicons.org/youtube/FF0000"
+                                alt="YouTube"></div>
+                        <span class="pipeline-node-label">YouTube</span>
+                    </div>
+                </div>
+                <div class="pipeline-center">
+                    <img src="assets/trans.png" alt="SoulSync" class="pipeline-logo">
+                    <div class="pipeline-pulse"></div>
+                </div>
+                <div class="pipeline-col pipeline-right">
+                    <h3 class="pipeline-col-title reveal">Media Servers</h3>
+                    <div class="pipeline-node" data-color="#E5A00D" data-side="right">
+                        <div class="pipeline-node-icon"><img src="https://cdn.simpleicons.org/plex/E5A00D" alt="Plex">
+                        </div>
+                        <span class="pipeline-node-label">Plex</span>
+                    </div>
+                    <div class="pipeline-node" data-color="#00A4DC" data-side="right">
+                        <div class="pipeline-node-icon"><img src="https://cdn.simpleicons.org/jellyfin/00A4DC"
+                                alt="Jellyfin"></div>
+                        <span class="pipeline-node-label">Jellyfin</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <div class="section-glow-divider"></div>

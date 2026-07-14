@@ -319,6 +319,20 @@ body {
     margin-bottom: 4rem;
 }
 
+.section-eyebrow {
+    display: block;
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 1rem;
+}
+
+.video-pipeline-wrap { margin-top: 1rem; }
+
 /* ==============================
    Dual Panel Layout
    ============================== */

@@ -377,8 +377,8 @@ function initOrbital() {
 //  SECTION 2: PIPELINE — Downloads left, SoulSync center, Servers right
 //  Particles flow left→center (downloads) and center→right (servers)
 // ==========================================================
-function initPipeline() {
-    const canvas = document.getElementById('canvas-pipeline');
+function initPipeline(canvasId) {
+    const canvas = document.getElementById(canvasId || 'canvas-pipeline');
     if (!canvas) return;
 
     const wrap = canvas.parentElement;
@@ -517,5 +517,6 @@ document.addEventListener('visibilitychange', () => {
 // ===== Init =====
 document.addEventListener('DOMContentLoaded', () => {
     initOrbital();
-    initPipeline();
+    initPipeline('canvas-pipeline');
+    initPipeline('canvas-video-pipeline');
 });
