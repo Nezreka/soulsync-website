@@ -698,6 +698,81 @@ body {
     margin: 0;
 }
 
+/* Hero stats line */
+.hero-stats {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--gray-light);
+    margin-top: 1rem;
+    letter-spacing: 0.02em;
+}
+
+/* Install notes */
+.install-notes {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.install-notes p {
+    color: var(--gray);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.install-notes strong {
+    color: var(--white);
+}
+
+.install-notes a {
+    color: var(--white);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* FAQ */
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    text-align: left;
+}
+
+.faq-item {
+    padding: 2rem 1.75rem;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    background: rgba(255,255,255,0.02);
+}
+
+.faq-item h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.6rem;
+}
+
+.faq-item p {
+    color: var(--gray);
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+    .faq-grid { grid-template-columns: 1fr; }
+}
+
+.footer-link {
+    color: var(--gray);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: var(--white);
+}
+
 /* Footer */
 .footer {
     padding: 3rem 2rem;

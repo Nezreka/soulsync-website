@@ -2,31 +2,130 @@
 <html lang="en">
 
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4414583700276271"
-        crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SoulSync - Automated Music &amp; Video Discovery and Collection Manager</title>
+    <title>SoulSync - Self-Hosted Music &amp; Video Collection Manager</title>
     <meta name="description"
-        content="Automated music and video discovery and collection manager for Plex and Jellyfin. Music (the Lidarr alternative) plus a full movies, TV, and YouTube side (Radarr/Sonarr-class) that actually works.">
-    <meta property="og:title" content="SoulSync - Automated Music &amp; Video Discovery">
+        content="SoulSync is a free, open-source, self-hosted music and video manager for Plex, Jellyfin and Navidrome. Playlist sync, verified downloads, automations and built-in subtitles, running in Docker.">
+    <meta name="keywords"
+        content="SoulSync, self-hosted music manager, playlist sync, Spotify playlist downloader, Soulseek, slskd, Plex, Jellyfin, Navidrome, Beatport, self-hosted video manager, Docker media automation">
+    <meta name="author" content="Nezreka">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.ssync.net/">
+    <meta property="og:site_name" content="SoulSync">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="SoulSync - Self-Hosted Music &amp; Video Collection Manager">
     <meta property="og:description"
-        content="Spotify-quality music discovery plus a full video side (movies, TV, YouTube) for your self-hosted library. The open-source Lidarr, Radarr, and Sonarr alternative.">
-    <meta property="og:image" content="assets/trans.png">
+        content="Free, open-source and self-hosted. SoulSync finds, downloads, verifies and tags music, movies, TV and YouTube, and files it all for Plex, Jellyfin or Navidrome. 500,000+ downloads.">
+    <meta property="og:image" content="https://www.ssync.net/assets/trans.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1512">
+    <meta property="og:image:height" content="1561">
+    <meta property="og:image:alt" content="SoulSync logo">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://nezreka.github.io/soulsync-website/">
+    <meta property="og:url" content="https://www.ssync.net/">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SoulSync - Automated Music &amp; Video Discovery">
+    <meta name="twitter:title" content="SoulSync - Self-Hosted Music &amp; Video Collection Manager">
     <meta name="twitter:description"
-        content="Spotify-quality music discovery plus a full video side (movies, TV, YouTube) for your self-hosted library. The open-source Lidarr, Radarr, and Sonarr alternative.">
+        content="Free, open-source and self-hosted. Playlist sync, verified downloads, automations and built-in subtitles for Plex, Jellyfin and Navidrome.">
+    <meta name="twitter:image" content="https://www.ssync.net/assets/trans.png">
+    <meta name="twitter:image:alt" content="SoulSync logo">
     <meta name="theme-color" content="#000000">
     <link rel="icon" href="assets/trans.png" type="image/png">
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "SoulSync",
+        "url": "https://www.ssync.net/",
+        "description": "Free, open-source, self-hosted music and video discovery and collection manager for Plex, Jellyfin and Navidrome. Playlist sync, verified downloads, automations and built-in subtitles.",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Docker, Linux, Windows, macOS, Unraid",
+        "softwareVersion": "3.5.7",
+        "downloadUrl": "https://github.com/Nezreka/SoulSync",
+        "codeRepository": "https://github.com/Nezreka/SoulSync",
+        "license": "https://opensource.org/licenses/MIT",
+        "image": "https://www.ssync.net/assets/trans.png",
+        "author": {
+            "@type": "Person",
+            "name": "Nezreka",
+            "url": "https://github.com/Nezreka"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "sameAs": [
+            "https://github.com/Nezreka/SoulSync"
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is SoulSync free?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. SoulSync is free and open source under the MIT license. You run it on your own hardware, with no subscription and no SoulSync account."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What does SoulSync do?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "SoulSync is one self-hosted app for music, movies, TV and YouTube. It finds what you want, downloads it, verifies and tags it, files it for your media server, and keeps your playlists in sync."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do I need Plex, Jellyfin or Navidrome?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. SoulSync Standalone works without a media server. If you already run one, SoulSync connects to Plex, Jellyfin or Navidrome for music, and Plex or Jellyfin for video."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do I need Soulseek or slskd?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Only if you want the Soulseek download source. slskd is optional. Other sources, including HiFi, YouTube and Deezer, need no extra software, and torrent or usenet sources connect through Prowlarr and your download client."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I install SoulSync?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The recommended install is Docker: download the docker-compose.yml from the GitHub repository, run docker compose up -d, then open http://localhost:8008. SoulSync also runs from the Unraid Community Applications store or as plain Python 3.11."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How is SoulSync different from Lidarr, Radarr and Sonarr?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "SoulSync covers music and video in a single app, including discovery, playlist sync, download verification, tagging and built-in subtitles, instead of a separate tool for each step. Many people run it alongside an existing setup first, then decide what it takes over."
+                }
+            }
+        ]
+    }
+    </script>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4414583700276271"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -36,6 +135,8 @@
                 <li><a href="#features" class="nav-link">Music</a></li>
                 <li><a href="#video" class="nav-link">Video</a></li>
                 <li><a href="#integrations" class="nav-link">Integrations</a></li>
+                <li><a href="#install" class="nav-link">Install</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
                 <li><a href="https://github.com/Nezreka/SoulSync" target="_blank" rel="noopener noreferrer"
                         class="nav-link">GitHub</a></li>
             </ul>
@@ -49,6 +150,7 @@
             <img src="assets/trans.png" alt="SoulSync Logo" class="hero-logo">
             <h1 class="hero-title">SoulSync</h1>
             <p class="hero-tagline">Automated Music &amp; Video Discovery and Collection Manager</p>
+            <p class="hero-stats">Free and open source. Self-hosted, on your hardware. 500,000+ downloads.</p>
             <div class="hero-terminal">
                 <div class="terminal-bar">
                     <span class="terminal-dot" style="background:#ff5f57"></span>
@@ -70,9 +172,9 @@
                 <div class="terminal-divider"></div>
                 <div class="terminal-body">
                     <span class="terminal-prompt">$</span>
-                    <span class="terminal-cmd">docker pull ghcr.io/nezreka/soulsync:latest</span>
+                    <span class="terminal-cmd">docker pull boulderbadgedad/soulsync:latest</span>
                     <button class="terminal-copy" title="Copy to clipboard"
-                        onclick="navigator.clipboard.writeText('docker pull ghcr.io/nezreka/soulsync:latest')">
+                        onclick="navigator.clipboard.writeText('docker pull boulderbadgedad/soulsync:latest')">
                         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
                             stroke-width="2">
                             <rect x="9" y="9" width="13" height="13" rx="2" />
@@ -107,7 +209,8 @@
         <div class="section-container">
             <span class="section-eyebrow reveal">Music</span>
             <h2 class="section-heading reveal">What SoulSync Does</h2>
-            <p class="section-subheading reveal">Everything you need to manage a self-hosted music library.</p>
+            <p class="section-subheading reveal">Everything you need to manage a self-hosted music library, plus
+                podcasts and audiobooks.</p>
             <div class="features-grid">
                 <div class="feature-card reveal">
                     <div class="feature-icon">
@@ -118,9 +221,11 @@
                             <line x1="12" y1="15" x2="12" y2="3" />
                         </svg>
                     </div>
-                    <h3>6 Download Sources</h3>
-                    <p>Download from Soulseek, YouTube, Tidal, Qobuz, HiFi, and Deezer. Hybrid mode tries each source in
-                        priority order with automatic fallback. Every download is tagged, organized, and verified.</p>
+                    <h3>10 Download Sources</h3>
+                    <p>Download from Soulseek (via slskd), Tidal, Qobuz, Deezer, HiFi, YouTube, SoundCloud, and torrent
+                        or usenet through Prowlarr, among others. Build a drag-ordered hybrid chain and SoulSync falls
+                        through to the next source when one cannot meet your quality profile. Every download is tagged,
+                        organized, and verified.</p>
                 </div>
                 <div class="feature-card reveal">
                     <div class="feature-icon">
@@ -149,9 +254,10 @@
                         </svg>
                     </div>
                     <h3>Playlist Sync</h3>
-                    <p>Import playlists from Spotify, Tidal, Deezer, YouTube, and Beatport. Tracks are matched to
-                        official metadata and synced to your Plex, Jellyfin, or Navidrome server. Playlists stay
-                        mirrored and can be refreshed.</p>
+                    <p>Import playlists from Spotify, Tidal, Qobuz, Deezer, YouTube and YouTube Music, Apple Music,
+                        ListenBrainz, Last.fm, Beatport, or a CSV, M3U or text file. Tracks are matched to official
+                        metadata and synced to your Plex, Jellyfin, or Navidrome server. Playlists stay mirrored, and
+                        a scheduled pipeline can refresh, discover, sync and download the missing tracks unattended.</p>
                 </div>
                 <div class="feature-card reveal">
                     <div class="feature-icon">
@@ -203,9 +309,9 @@
                         </svg>
                     </div>
                     <h3>Library Management</h3>
-                    <p>Enhanced library manager with inline editing, bulk tag writing, and 16 automated repair jobs.
+                    <p>Enhanced library manager with inline editing, bulk tag writing, and 31 automated maintenance jobs.
                         Smart delete, track redownload, orphan detection, fake lossless detection, and metadata gap
-                        filling.</p>
+                        filling. 31 maintenance jobs in total, each with its own schedule.</p>
                 </div>
                 <div class="feature-card reveal">
                     <div class="feature-icon">
@@ -216,8 +322,10 @@
                         </svg>
                     </div>
                     <h3>Automation Engine</h3>
-                    <p>Visual WHEN/DO/THEN workflow builder. Schedule scans, chain downloads to notifications, fire
-                        signals between automations. Discord, Telegram, and Pushbullet alerts built in.</p>
+                    <p>Visual WHEN/DO/THEN workflow builder with 60+ triggers and actions, shared by the music and
+                        video sides. Schedule scans, chain downloads to notifications, fire signals between
+                        automations, or install a ready-made pipeline from the Automation Hub in one click. Discord,
+                        Telegram, Pushbullet and webhook alerts built in.</p>
                 </div>
 
                 <div class="feature-card reveal">
@@ -268,10 +376,52 @@
                             <path d="M8 6l-6 6 6 6" />
                         </svg>
                     </div>
-                    <h3>80+ API Endpoints</h3>
-                    <p>Full REST API powering every feature. Search, download, manage artists, trigger automations,
-                        query stats, and control playback programmatically. Build your own integrations or automate with
-                        scripts.</p>
+                    <h3>API &amp; Webhooks</h3>
+                    <p>A REST API at /api/v1 covering library, search, wishlist, watchlist, downloads, playlists,
+                        discover, settings, profiles and video, with hashed, rate-limited API keys. An inbound
+                        request webhook lets a Discord bot or a shortcut ask for something and have SoulSync search,
+                        match and download it.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M3 18v-6a9 9 0 0118 0v6" />
+                            <path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z" />
+                        </svg>
+                    </div>
+                    <h3>Beatport Charts &amp; Discovery</h3>
+                    <p>Every Beatport chart opens as a real playlist: Top 100s, Hype lists, genre charts and DJ charts,
+                        identified by ISRC, ready to sync and download. Mirrored charts refresh instead of freezing,
+                        you can save a dated snapshot of any chart, and Beatport enrichment writes the label's own BPM,
+                        key, label and catalog number while tagging.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z" />
+                            <path d="M19 10v2a7 7 0 01-14 0v-2" />
+                            <line x1="12" y1="19" x2="12" y2="23" />
+                            <line x1="8" y1="23" x2="16" y2="23" />
+                        </svg>
+                    </div>
+                    <h3>Podcasts &amp; Audiobooks</h3>
+                    <p>Podcasts from Apple Podcasts search or any RSS feed, including private and Patreon feeds, with
+                        a watchlist that downloads new episodes and cleans up old ones. Audiobooks browsed by genre,
+                        series, author and narrator, with author follows and their own wishlist.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <polygon points="5 3 19 12 5 21 5 3" />
+                        </svg>
+                    </div>
+                    <h3>Player &amp; Radio</h3>
+                    <p>A full web player built in, with synced lyrics, a persistent queue, crossfade and OS media
+                        controls. Artist Radio and Library Radio keep your own collection playing, and tracks you do
+                        not own yet can stream from a preview source first, or auto-download.</p>
                 </div>
             </div>
         </div>
@@ -423,6 +573,7 @@
                     </div>
                 </div>
             </div>
+        </div>
     </section>
 
     <div class="section-glow-divider"></div>
@@ -433,7 +584,7 @@
             <span class="section-eyebrow reveal">Video</span>
             <h2 class="section-heading reveal">Movies, TV &amp; YouTube</h2>
             <p class="section-subheading reveal">A whole video side, isolated from music, with its own library, calendar,
-                and download pipeline. The self-hosted Radarr and Sonarr alternative, built in.</p>
+                and download pipeline, plus built-in subtitles.</p>
             <div class="features-grid">
                 <div class="feature-card reveal">
                     <div class="feature-icon">
@@ -463,8 +614,9 @@
                         </svg>
                     </div>
                     <h3>Movie &amp; TV Enrichment</h3>
-                    <p>TMDB, TVDB, and OMDb matching plus 10 background workers — fanart.tv, OpenSubtitles, Trakt, TVmaze,
-                        AniList, and more. Ratings, artwork, cast, and episode data filled automatically, gap-fill only.</p>
+                    <p>TMDB, TVDB, and OMDb matching plus 15 background workers, including fanart.tv, OpenSubtitles,
+                        Trakt, TVmaze, AniList, SponsorBlock and where-to-watch data. Ratings, artwork, cast, and
+                        episode data filled automatically, gap-fill only.</p>
                 </div>
                 <div class="feature-card reveal">
                     <div class="feature-icon">
@@ -492,9 +644,10 @@
                             <line x1="12" y1="22" x2="12" y2="18" />
                         </svg>
                     </div>
-                    <h3>Radarr / Sonarr-Class Matching</h3>
-                    <p>Quality-profile ladders with cutoff, upgrade-until-cutoff, and reject rules. Release title and
-                        TMDB-alias gating so you never grab the wrong film. Soulseek, Prowlarr indexers, and yt-dlp.</p>
+                    <h3>Quality Profiles &amp; Matching</h3>
+                    <p>A 16-tier quality ladder with cutoff, upgrade-until-cutoff, custom formats, and reject rules.
+                        Release title and TMDB-alias gating so you never grab the wrong film. Soulseek, Prowlarr
+                        indexers, torrent and usenet clients, and yt-dlp.</p>
                 </div>
                 <div class="feature-card reveal">
                     <div class="feature-icon">
@@ -507,8 +660,9 @@
                         </svg>
                     </div>
                     <h3>TV Calendar</h3>
-                    <p>A real week grid with air times and a billboard. Wishlist an airing episode straight from the
-                        modal, or auto-grab today's airings Sonarr-style. Nightly schedule refresh keeps it current.</p>
+                    <p>A real week grid with air times, acquisition state on every episode, and a billboard, plus an
+                        iCal feed for your phone. Wishlist an airing episode straight from the modal, or auto-grab
+                        today's airings. Nightly schedule refresh keeps it current.</p>
                 </div>
                 <div class="feature-card reveal">
                     <div class="feature-icon">
@@ -597,6 +751,45 @@
                     <p>Progressive, Netflix-feel search across movies, shows, people, studios, and YouTube. Plus
                         trending, similar titles, and complete-your-collection gap-finding for your franchises.</p>
                 </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <rect x="2" y="4" width="20" height="16" rx="2" />
+                            <path d="M7 12h4M7 15.5h7M14.5 12H17" />
+                        </svg>
+                    </div>
+                    <h3>Built-in Subtitles</h3>
+                    <p>Subtitle fetching is built in, from multiple providers including OpenSubtitles, SubDL and
+                        SubSource, with a wanted list that keeps retrying the languages you are missing. Per-title
+                        language lists, hearing-impaired and forced tracks, embedded subtitle extraction, and local
+                        Whisper transcription as an opt-in last resort when no provider has them.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M12 20V10M18 20V4M6 20v-4" />
+                        </svg>
+                    </div>
+                    <h3>Requests &amp; Import Lists</h3>
+                    <p>Household profiles without download rights can request movies and shows, and an admin approves
+                        before anything is fetched. Import lists from TMDB, IMDb and your Plex Watchlist to seed the
+                        library.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                    </div>
+                    <h3>Download Clients</h3>
+                    <p>qBittorrent, Transmission, Deluge, SABnzbd, NZBGet and slskd, managed from the same downloads
+                        page as the music side, with season packs, seeding goals, stall detection and a review queue
+                        for anything that needs a human.</p>
+                </div>
             </div>
 
             <!-- Video download pipeline -->
@@ -645,6 +838,114 @@
 
     <div class="section-glow-divider"></div>
 
+    <!-- Install -->
+    <section id="install" class="section features-section">
+        <div class="section-container">
+            <span class="section-eyebrow reveal">Get Started</span>
+            <h2 class="section-heading reveal">Install with Docker</h2>
+            <p class="section-subheading reveal">The recommended install takes a couple of minutes. SoulSync runs on
+                Docker (amd64 and arm64), from the Unraid Community Applications store, or as plain Python 3.11.</p>
+            <div class="cta-terminal reveal">
+                <div class="terminal-bar">
+                    <span class="terminal-dot" style="background:#ff5f57"></span>
+                    <span class="terminal-dot" style="background:#febc2e"></span>
+                    <span class="terminal-dot" style="background:#28c840"></span>
+                </div>
+                <div class="terminal-body">
+                    <span class="terminal-prompt">$</span>
+                    <span class="terminal-cmd">curl -O https://raw.githubusercontent.com/Nezreka/SoulSync/main/docker-compose.yml</span>
+                    <button class="terminal-copy" title="Copy to clipboard"
+                        onclick="navigator.clipboard.writeText('curl -O https://raw.githubusercontent.com/Nezreka/SoulSync/main/docker-compose.yml')">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" />
+                            <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="terminal-divider"></div>
+                <div class="terminal-body">
+                    <span class="terminal-prompt">$</span>
+                    <span class="terminal-cmd">docker compose up -d</span>
+                    <button class="terminal-copy" title="Copy to clipboard"
+                        onclick="navigator.clipboard.writeText('docker compose up -d')">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" />
+                            <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="terminal-divider"></div>
+                <div class="terminal-body">
+                    <span class="terminal-prompt">#</span>
+                    <span class="terminal-cmd">open http://localhost:8008 and follow the setup wizard</span>
+                </div>
+            </div>
+            <div class="install-notes reveal">
+                <p><strong>Nothing else is required to start.</strong> SoulSync Standalone works without a media
+                    server, and HiFi, YouTube and Deezer need no extra software.</p>
+                <p><strong>Optional:</strong> a running <strong>slskd</strong> instance if you want the Soulseek
+                    source, free Spotify API credentials for the best discovery, a Plex, Jellyfin or Navidrome
+                    server, and Prowlarr plus a torrent or usenet client for those sources and the video side.</p>
+                <p>Port <strong>8008</strong> is the web UI and API. Ports 8888 and 8889 are the Spotify and Tidal
+                    OAuth callbacks. Full setup, paths and release channels are in the
+                    <a href="https://github.com/Nezreka/SoulSync#installation" target="_blank"
+                        rel="noopener noreferrer">GitHub README</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-glow-divider"></div>
+
+    <!-- FAQ -->
+    <section id="faq" class="section features-section">
+        <div class="section-container">
+            <span class="section-eyebrow reveal">FAQ</span>
+            <h2 class="section-heading reveal">Common Questions</h2>
+            <p class="section-subheading reveal">The short answers. The long ones live in the in-app help and on
+                GitHub.</p>
+            <div class="faq-grid">
+                <div class="faq-item reveal">
+                    <h3>Is SoulSync free?</h3>
+                    <p>Yes. SoulSync is free and open source under the MIT license. You run it on your own hardware,
+                        with no subscription and no SoulSync account.</p>
+                </div>
+                <div class="faq-item reveal">
+                    <h3>What does SoulSync do?</h3>
+                    <p>SoulSync is one self-hosted app for music, movies, TV and YouTube. It finds what you want,
+                        downloads it, verifies and tags it, files it for your media server, and keeps your playlists
+                        in sync.</p>
+                </div>
+                <div class="faq-item reveal">
+                    <h3>Do I need Plex, Jellyfin or Navidrome?</h3>
+                    <p>No. SoulSync Standalone works without a media server. If you already run one, SoulSync connects
+                        to Plex, Jellyfin or Navidrome for music, and Plex or Jellyfin for video.</p>
+                </div>
+                <div class="faq-item reveal">
+                    <h3>Do I need Soulseek or slskd?</h3>
+                    <p>Only if you want the Soulseek download source. slskd is optional. Other sources, including
+                        HiFi, YouTube and Deezer, need no extra software, and torrent or usenet sources connect through
+                        Prowlarr and your download client.</p>
+                </div>
+                <div class="faq-item reveal">
+                    <h3>How do I install SoulSync?</h3>
+                    <p>The recommended install is Docker: download the docker-compose.yml from the GitHub repository,
+                        run docker compose up -d, then open http://localhost:8008. SoulSync also runs from the Unraid
+                        Community Applications store or as plain Python 3.11.</p>
+                </div>
+                <div class="faq-item reveal">
+                    <h3>How is SoulSync different from Lidarr, Radarr and Sonarr?</h3>
+                    <p>SoulSync covers music and video in a single app, including discovery, playlist sync, download
+                        verification, tagging and built-in subtitles, instead of a separate tool for each step. Many
+                        people run it alongside an existing setup first, then decide what it takes over.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-glow-divider"></div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="section-container">
@@ -657,7 +958,12 @@
                     </svg>
                     Nezreka/SoulSync
                 </a>
-                <p class="footer-text">Open source. Free forever. Built for self-hosters.</p>
+                <p class="footer-text">Open source under the MIT license. Free forever. Built for self-hosters.</p>
+                <p class="footer-text"><a href="#install" class="footer-link">Install</a> &middot;
+                    <a href="#faq" class="footer-link">FAQ</a> &middot;
+                    <a href="https://github.com/Nezreka/SoulSync" target="_blank"
+                        rel="noopener noreferrer" class="footer-link">GitHub</a>
+                </p>
             </div>
         </div>
     </footer>
