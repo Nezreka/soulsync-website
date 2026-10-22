@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetaSync - The Network Layer for SoulSync</title>
+    <meta name="description"
+        content="MetaSync is the opt-in network layer for SoulSync: a shared metadata pool keyed by SoulID, and SIN, the SoulSync Intelligence Network, which turns anonymous community signals into global playlists and discovery.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.ssync.net/metasync/">
+    <meta property="og:site_name" content="SoulSync">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="MetaSync - The Network Layer for SoulSync">
+    <meta property="og:description"
+        content="Two opt-in networks for SoulSync installs: a shared metadata pool, and SIN, which turns anonymous community signals into global playlists and discovery.">
+    <meta property="og:image" content="https://www.ssync.net/assets/trans.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="SoulSync logo">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.ssync.net/metasync/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MetaSync - The Network Layer for SoulSync">
+    <meta name="twitter:description"
+        content="Opt-in networks for SoulSync: pooled metadata and community-powered playlists and discovery.">
+    <meta name="twitter:image" content="https://www.ssync.net/assets/trans.png">
+    <meta name="theme-color" content="#000000">
+    <link rel="icon" href="../assets/trans.png" type="image/png">
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .step-card {
+            padding: 2rem 1.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .step-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            color: var(--gray);
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .step-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 0.6rem;
+        }
+
+        .step-card p {
+            color: var(--gray);
+            font-size: 0.85rem;
+            line-height: 1.7;
+        }
+
+        .status-note {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            text-align: center;
+        }
+
+        .status-note strong {
+            color: var(--white);
+        }
+
+        @media (max-width: 900px) {
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="../#features" class="nav-link">Music</a></li>
+                <li><a href="../#video" class="nav-link">Video</a></li>
+                <li><a href="../#integrations" class="nav-link">Integrations</a></li>
+                <li><a href="/metasync/" class="nav-link">MetaSync</a></li>
+                <li><a href="../#install" class="nav-link">Install</a></li>
+                <li><a href="../#faq" class="nav-link">FAQ</a></li>
+                <li><a href="https://github.com/Nezreka/SoulSync" target="_blank" rel="noopener noreferrer"
+                        class="nav-link">GitHub</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <img src="../assets/trans.png" alt="SoulSync Logo" class="hero-logo">
+            <h1 class="hero-title">MetaSync</h1>
+            <p class="hero-tagline">The network layer for SoulSync</p>
+            <p class="hero-stats">SoulSync works completely on its own. MetaSync is what SoulSync installs can
+                choose to plug into: two shared networks that make every connected library smarter, while no
+                install ever gives up control of its own data.</p>
+        </div>
+    </section>
+
+    <div class="section-glow-divider"></div>
+
+    <!-- The two networks -->
+    <section class="section features-section">
+        <div class="section-container">
+            <span class="section-eyebrow">Two networks, one companion</span>
+            <h2 class="section-heading">What MetaSync Is</h2>
+            <p class="section-subheading">MetaSync is a small companion program that runs next to your SoulSync,
+                with its own interface on its own port. It speaks to SoulSync only through SoulSync's API, and it
+                is the bridge to two opt-in networks.</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>The Metadata Pool</h3>
+                    <p>Every SoulSync install spends real work resolving metadata: matching tracks, albums and
+                        artists across providers. MetaSync lets installs pool that resolved metadata, keyed by the
+                        SoulID every track, album and artist already gets in SoulSync, so one install's work does
+                        not have to be redone by every other install. Records are checked against other installs
+                        before they are trusted, and your own library's data always wins over the pool's. The pool
+                        carries metadata only. Never audio, never your files.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>SIN: The SoulSync Intelligence Network</h3>
+                    <p>SIN pools anonymous taste signals from connected installs: which artists get watchlisted,
+                        which albums get wishlisted, imported and kept, and which releases people are still hunting
+                        for. Those counts are combined across the whole network and turned into things your SoulSync
+                        can use: Trending, Most Wanted and Breakout lists, delivered back as global playlists that
+                        MetaSync creates in your SoulSync and keeps up to date. Signals are counted once per
+                        install per item per week, and a release only appears once enough installs stand behind
+                        it.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Yours to Run, Yours to Leave</h3>
+                    <p>MetaSync is free and open source, like SoulSync. Run it as a Python program on the same
+                        machine as SoulSync, or as a Docker container next to it. SoulSync itself never depends on
+                        it: stop MetaSync, unplug it, or never install it, and SoulSync runs exactly as before.
+                        Joining a network is a separate step inside MetaSync, never a side effect of installing
+                        it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-glow-divider"></div>
+
+    <!-- How to connect -->
+    <section id="connect" class="section">
+        <div class="section-container">
+            <span class="section-eyebrow">Getting connected</span>
+            <h2 class="section-heading">How to Connect</h2>
+            <p class="section-subheading">Three steps. The first connects MetaSync to your SoulSync. Only the
+                third one joins a network.</p>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <span class="step-number">STEP 1</span>
+                    <h3>Install MetaSync and point it at your SoulSync</h3>
+                    <p>Run MetaSync next to your SoulSync and open its interface. In SoulSync, create an API key
+                        under Settings, then API keys. Paste your SoulSync address and that key into MetaSync and
+                        test the connection. MetaSync can now read your library through the API, and create
+                        playlists in it. Nothing has left your machine.</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-number">STEP 2</span>
+                    <h3>Get a pool key</h3>
+                    <p>Create an account at the MetaSync portal, metasync.ssync.net. Your dashboard shows the pool
+                        address and your personal API key. That key is how the pool knows a real account is
+                        connecting. It can be regenerated or revoked at any time, and revoking it cuts that
+                        install off without affecting anyone else.</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-number">STEP 3</span>
+                    <h3>Join the pool in MetaSync</h3>
+                    <p>Back in MetaSync, open the Pools page and add the pool address and your key. Before anything
+                        is sent, MetaSync shows you the exact report it will send for the week, so you can read
+                        every line yourself. From then on it sends one report a week, pulls the network's
+                        playlists down, and keeps your local copies current.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-glow-divider"></div>
+
+    <!-- Privacy -->
+    <section class="section features-section">
+        <div class="section-container">
+            <span class="section-eyebrow">Privacy</span>
+            <h2 class="section-heading">What Leaves Your Machine, and What Never Does</h2>
+            <p class="section-subheading">SIN runs on counts, not on your data. This is the whole list of what a
+                weekly SIN report contains: MusicBrainz IDs for artists you watchlisted, and releases you
+                wishlisted, imported and kept, or are still hunting for, each counted once.</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Never Collected</h3>
+                    <p>No listening history. No play counts. No file paths or library listings. No artist or album
+                        names as text, only IDs. No usernames, and no tracking of who reported what: your key
+                        checks you in at the door, and the report itself is stored under a token that rotates
+                        every week and cannot be traced back to your account.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Preview Before It Sends</h3>
+                    <p>MetaSync shows you the exact report before the first send, and the current week's report is
+                        always one click away in its interface. If you do not like what you see, do not join the
+                        pool, or leave it. Leaving takes effect immediately; the pool keeps only the anonymous
+                        counts already combined into past weeks.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Only Official Playlists Are Official</h3>
+                    <p>The global playlists everyone receives are published by the network itself, from the
+                        combined counts. Individual installs can only send their own signals and pull the
+                        finished playlists down. Nobody can edit the shared lists, inject tracks into them, or
+                        publish on anyone else's behalf.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-glow-divider"></div>
+
+    <!-- Status -->
+    <section class="section">
+        <div class="section-container">
+            <span class="section-eyebrow">Status</span>
+            <h2 class="section-heading">Where This Stands</h2>
+            <div class="status-note">
+                <strong>MetaSync and SIN are in active development.</strong> The SIN pool is live in an early
+                form and the MetaSync program itself is built, with the account portal for API keys next in
+                line. Pool keys are not being issued publicly yet. This page is the design, published ahead of
+                the launch so the rules above are on record before anyone connects. Watch the SoulSync
+                repository and this page for the opening.
+            </div>
+        </div>
+    </section>
+
+    <div class="section-glow-divider"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="section-container">
+            <div class="footer-content">
+                <a href="https://github.com/Nezreka/SoulSync" target="_blank" rel="noopener noreferrer"
+                    class="footer-github">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path
+                            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                    </svg>
+                    Nezreka/SoulSync
+                </a>
+                <p class="footer-text">Open source under the MIT license. Free forever. Built for self-hosters.</p>
+                <p class="footer-text"><a href="../#install" class="footer-link">Install</a> &middot;
+                    <a href="../#faq" class="footer-link">FAQ</a> &middot;
+                    <a href="/metasync/" class="footer-link">MetaSync</a> &middot;
+                    <a href="https://github.com/Nezreka/SoulSync" target="_blank"
+                        rel="noopener noreferrer" class="footer-link">GitHub</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
