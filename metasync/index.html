@@ -145,12 +145,12 @@
                 <div class="feature-card">
                     <h3>SIN: The SoulSync Intelligence Network</h3>
                     <p>SIN pools anonymous taste signals from connected installs: which artists get watchlisted,
-                        which albums get wishlisted, imported and kept, and which releases people are still hunting
-                        for. Those counts are combined across the whole network and turned into things your SoulSync
-                        can use: Trending, Most Wanted and Breakout lists, delivered back as global playlists that
-                        MetaSync creates in your SoulSync and keeps up to date. Signals are counted once per
-                        install per item per week, and a release only appears once enough installs stand behind
-                        it.</p>
+                        which albums get wishlisted, land in libraries, get downloaded and kept, and which releases
+                        people are still hunting for. Those counts are combined across the whole network and
+                        turned into things your SoulSync can use: Trending, Most Wanted, Just Landed, Loved &amp;
+                        Kept, Rising and Breakout lists, delivered back as global playlists that MetaSync creates
+                        in your SoulSync and keeps up to date. Signals are counted once per install per item per
+                        week, and a release only appears once at least 15 installs stand behind it.</p>
                 </div>
                 <div class="feature-card">
                     <h3>Yours to Run, Yours to Leave</h3>
@@ -176,27 +176,30 @@
             <div class="steps-grid">
                 <div class="step-card">
                     <span class="step-number">STEP 1</span>
-                    <h3>Install MetaSync and point it at your SoulSync</h3>
-                    <p>Run MetaSync next to your SoulSync and open its interface. In SoulSync, create an API key
-                        under Settings, then API keys. Paste your SoulSync address and that key into MetaSync and
-                        test the connection. MetaSync can now read your library through the API, and create
-                        playlists in it. Nothing has left your machine.</p>
+                    <h3>Install MetaSync and connect it to your SoulSync</h3>
+                    <p>Run MetaSync next to your SoulSync and open its interface. In SoulSync, go to Settings,
+                        Advanced, MetaSync and press Connect: SoulSync finds MetaSync and shows a pairing code to
+                        approve on the MetaSync dashboard, and the two swap keys. Typing the keys by hand works
+                        too. MetaSync can now read your library through the API, and create playlists in it.
+                        Nothing has left your machine.</p>
                 </div>
                 <div class="step-card">
                     <span class="step-number">STEP 2</span>
                     <h3>Get a pool key</h3>
-                    <p>Create an account at the MetaSync portal, metasync.ssync.net. Your dashboard shows the pool
-                        address and your personal API key. That key is how the pool knows a real account is
+                    <p>Sign in at the MetaSync portal, metasync.ssync.net, and create a key. It is shown once; the
+                        portal keeps only its fingerprint. That key is how the pool knows a real account is
                         connecting. It can be regenerated or revoked at any time, and revoking it cuts that
-                        install off without affecting anyone else.</p>
+                        install off on its very next request without affecting anyone else.</p>
                 </div>
                 <div class="step-card">
                     <span class="step-number">STEP 3</span>
-                    <h3>Join the pool in MetaSync</h3>
-                    <p>Back in MetaSync, open the Pools page and add the pool address and your key. Before anything
-                        is sent, MetaSync shows you the exact report it will send for the week, so you can read
-                        every line yourself. From then on it sends one report a week, pulls the network's
-                        playlists down, and keeps your local copies current.</p>
+                    <h3>Join the pool, and approve your MetaSync</h3>
+                    <p>Paste your key into SoulSync's MetaSync section (or MetaSync's Pools page). The first time
+                        MetaSync presents it, the portal asks you to approve that MetaSync by its fingerprint: from
+                        then on the key works only from that one install, so a copied key is useless anywhere
+                        else. MetaSync starts in dry run and shows you the exact report it would send, so you can
+                        read every line yourself. Turn dry run off and it sends one report a week, pulls the
+                        network's playlists down, and keeps your local copies current.</p>
                 </div>
             </div>
         </div>
@@ -210,19 +213,25 @@
             <span class="section-eyebrow">Privacy</span>
             <h2 class="section-heading">What Leaves Your Machine, and What Never Does</h2>
             <p class="section-subheading">SIN runs on counts, not on your data. This is the whole list of what a
-                weekly SIN report contains: MusicBrainz IDs for artists you watchlisted, and releases you
-                wishlisted, imported and kept, or are still hunting for, each counted once.</p>
+                weekly SIN report contains, for the week that just ended: MusicBrainz IDs for artists you
+                watchlisted, and releases you wishlisted, added, downloaded, kept for two weeks, or are still
+                hunting for, each counted once. Two more are optional and off until you switch them on:
+                albums you downloaded and later removed, and albums you played at least three different
+                tracks from (your top 50 at most). A report is a week of events, never your library: a week
+                with hundreds of imports is a migration, and is held back rather than sent.</p>
             <div class="features-grid">
                 <div class="feature-card">
                     <h3>Never Collected</h3>
-                    <p>No listening history. No play counts. No file paths or library listings. No artist or album
+                    <p>No listening history: the optional listening signal is a yes or no per album per week, with
+                        no play counts, no play times and no track names, and nothing from a SoulSync profile that
+                        keeps its own listening history. No file paths or library listings. No artist or album
                         names as text, only IDs. No usernames, and no tracking of who reported what: your key
-                        checks you in at the door, and the report itself is stored under a token that rotates
-                        every week and cannot be traced back to your account.</p>
+                        checks you in at the door, and the report is counted the moment it arrives and never
+                        stored. What the pool keeps is a tally per album, not your report.</p>
                 </div>
                 <div class="feature-card">
                     <h3>Preview Before It Sends</h3>
-                    <p>MetaSync shows you the exact report before the first send, and the current week's report is
+                    <p>MetaSync shows you the exact report before the first send, and the latest report is
                         always one click away in its interface. If you do not like what you see, do not join the
                         pool, or leave it. Leaving takes effect immediately; the pool keeps only the anonymous
                         counts already combined into past weeks.</p>
@@ -246,11 +255,11 @@
             <span class="section-eyebrow">Status</span>
             <h2 class="section-heading">Where This Stands</h2>
             <div class="status-note">
-                <strong>MetaSync and SIN are in active development.</strong> The SIN pool is live in an early
-                form and the MetaSync program itself is built, with the account portal for API keys next in
-                line. Pool keys are not being issued publicly yet. This page is the design, published ahead of
-                the launch so the rules above are on record before anyone connects. Watch the SoulSync
-                repository and this page for the opening.
+                <strong>MetaSync and SIN are in public beta.</strong> The SIN pool and the account portal are
+                live, and the first installs are reporting. A list only publishes once at least 15 installs
+                report the same release in a week, so right now the network is gathering its founding
+                installs: early testers are exactly what it needs. The rules above are on record here, and
+                the full data map is in the MetaSync repository.
             </div>
         </div>
     </section>
