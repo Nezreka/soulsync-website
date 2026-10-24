@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MetaSync - The Network Layer for SoulSync</title>
     <meta name="description"
-        content="MetaSync is the opt-in network layer for SoulSync: a shared metadata pool keyed by SoulID, and SIN, the SoulSync Intelligence Network, which turns anonymous community signals into global playlists and discovery.">
+        content="MetaSync is the opt-in companion for SoulSync. It connects your install to SIN, the SoulSync Intelligence Network, where anonymous weekly counts from every install become community charts. Plus a shared metadata pool in development.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.ssync.net/metasync/">
     <meta property="og:site_name" content="SoulSync">
     <meta property="og:locale" content="en_US">
     <meta property="og:title" content="MetaSync - The Network Layer for SoulSync">
     <meta property="og:description"
-        content="Two opt-in networks for SoulSync installs: a shared metadata pool, and SIN, which turns anonymous community signals into global playlists and discovery.">
+        content="Opt-in networks for SoulSync installs: SIN turns anonymous community signals into charts and playlists, and a shared metadata pool is in development.">
     <meta property="og:image" content="https://www.ssync.net/assets/trans.png">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:alt" content="SoulSync logo">
@@ -22,7 +22,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="MetaSync - The Network Layer for SoulSync">
     <meta name="twitter:description"
-        content="Opt-in networks for SoulSync: pooled metadata and community-powered playlists and discovery.">
+        content="Opt-in networks for SoulSync: community-powered charts and discovery, and pooled metadata in development.">
     <meta name="twitter:image" content="https://www.ssync.net/assets/trans.png">
     <meta name="theme-color" content="#000000">
     <link rel="icon" href="../assets/trans.png" type="image/png">
@@ -34,6 +34,214 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
     <style>
+        /* Page-local: status pill, badges, charts visual, status board */
+        .beta-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            padding: 0.45rem 1.1rem;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 999px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--gray-light);
+            margin-bottom: 1.75rem;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .beta-pill .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #1ed760;
+            box-shadow: 0 0 10px rgba(30, 215, 96, 0.8);
+        }
+
+        .hero-lede {
+            max-width: 680px;
+            color: var(--gray);
+            font-size: 1.05rem;
+            line-height: 1.75;
+            margin-top: 1.25rem;
+        }
+
+        .hero-lede strong {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .cta-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.85rem 2.25rem;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: border-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .cta-ghost:hover {
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .hero-cta {
+            margin-top: 0;
+        }
+
+        /* Charts visual: a SoulSync-dashboard-styled panel */
+        .charts-panel {
+            width: min(680px, 100%);
+            margin: 3.5rem auto 0;
+            text-align: left;
+            background: #0b0b0f;
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            border-radius: 20px;
+            padding: 1.4rem 1.4rem 1.1rem;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(0, 0, 0, 0.4);
+        }
+
+        .charts-panel-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            padding: 0 0.35rem 1rem;
+        }
+
+        .charts-panel-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 0.01em;
+        }
+
+        .charts-panel-week {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .chart-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.8rem 0.9rem;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 0.6rem;
+        }
+
+        .chart-cover {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            flex-shrink: 0;
+        }
+
+        .cover-a { background: linear-gradient(135deg, #1db954, #0e5c2a); }
+        .cover-b { background: linear-gradient(135deg, #e0e0e0, #5a5a5a); }
+        .cover-c { background: linear-gradient(135deg, #7a7af0, #2c2c6e); }
+        .cover-d { background: linear-gradient(135deg, #f0a05a, #7a3c10); }
+
+        .chart-meta {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .chart-name {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: #fff;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .chart-sub {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.45);
+            margin-top: 0.15rem;
+        }
+
+        .chart-count {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            color: #1ed760;
+            white-space: nowrap;
+        }
+
+        .charts-panel-foot {
+            padding: 0.85rem 0.35rem 0.25rem;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.6;
+        }
+
+        .charts-panel-foot strong {
+            color: #fff;
+        }
+
+        /* Badges on cards */
+        .badge {
+            display: inline-block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.62rem;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            padding: 0.28rem 0.7rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .badge-live {
+            color: #1ed760;
+            border: 1px solid rgba(30, 215, 96, 0.4);
+            background: rgba(30, 215, 96, 0.08);
+        }
+
+        .badge-dev {
+            color: var(--gray-light);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .feature-card p + p {
+            margin-top: 0.7rem;
+        }
+
+        .chart-family {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.07);
+            font-size: 0.8rem;
+            color: var(--gray);
+            line-height: 1.9;
+        }
+
+        .chart-family span {
+            color: var(--gray-light);
+            font-weight: 600;
+        }
+
+        /* Steps */
         .steps-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -69,26 +277,177 @@
             line-height: 1.7;
         }
 
-        .status-note {
-            max-width: 760px;
-            margin: 0 auto;
-            padding: 1.5rem 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+        .step-card a, .install-link {
+            color: var(--white);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        /* Privacy lists */
+        .privacy-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .privacy-panel {
+            padding: 2rem 1.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: 12px;
             background: rgba(255, 255, 255, 0.02);
+            text-align: left;
+        }
+
+        .privacy-panel h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1.1rem;
+        }
+
+        .privacy-panel ul {
+            list-style: none;
+        }
+
+        .privacy-panel li {
+            color: var(--gray);
+            font-size: 0.88rem;
+            line-height: 1.65;
+            padding-left: 1.4rem;
+            position: relative;
+            margin-bottom: 0.75rem;
+        }
+
+        .privacy-panel li::before {
+            position: absolute;
+            left: 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+        }
+
+        .privacy-yes li::before {
+            content: "+";
+            color: #1ed760;
+        }
+
+        .privacy-no li::before {
+            content: "\00d7";
+            color: #e05a5a;
+        }
+
+        .privacy-panel li strong {
+            color: var(--gray-light);
+            font-weight: 600;
+        }
+
+        .privacy-panel .opt {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.62rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--gray-light);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 999px;
+            padding: 0.12rem 0.5rem;
+            margin-left: 0.4rem;
+            vertical-align: 2px;
+            white-space: nowrap;
+        }
+
+        /* Status board */
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            text-align: left;
+        }
+
+        .status-col {
+            padding: 2rem 1.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .status-col ul {
+            list-style: none;
+            margin-top: 1.1rem;
+        }
+
+        .status-col li {
+            color: var(--gray);
+            font-size: 0.88rem;
+            line-height: 1.65;
+            padding-left: 1.3rem;
+            position: relative;
+            margin-bottom: 0.8rem;
+        }
+
+        .status-col li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.52em;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+        }
+
+        .status-live li::before { background: #1ed760; }
+        .status-wait li::before { background: #e5a00d; }
+        .status-dev li::before { background: rgba(255, 255, 255, 0.35); }
+
+        .status-col li strong {
+            color: var(--gray-light);
+            font-weight: 600;
+        }
+
+        /* CTA band */
+        .cta-band {
+            max-width: 820px;
+            margin: 4rem auto 0;
+            text-align: center;
+            padding: 3rem 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            border-radius: 16px;
+            background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015));
+        }
+
+        .cta-band h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 0.75rem;
+        }
+
+        .cta-band p {
             color: var(--gray);
             font-size: 0.95rem;
             line-height: 1.7;
-            text-align: center;
+            max-width: 560px;
+            margin: 0 auto;
         }
 
-        .status-note strong {
-            color: var(--white);
+        .cta-band .hero-cta {
+            margin-top: 2rem;
         }
 
         @media (max-width: 900px) {
-            .steps-grid {
+            .steps-grid, .status-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .privacy-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .charts-panel {
+                padding: 1.1rem 1.1rem 0.9rem;
+            }
+
+            .chart-name {
+                white-space: normal;
             }
         }
     </style>
@@ -114,53 +473,166 @@
     <section class="hero">
         <div class="hero-content">
             <img src="../assets/trans.png" alt="SoulSync Logo" class="hero-logo">
+            <span class="beta-pill"><span class="dot"></span>Public beta &middot; SIN pool live</span>
             <h1 class="hero-title">MetaSync</h1>
             <p class="hero-tagline">The network layer for SoulSync</p>
-            <p class="hero-stats">SoulSync works completely on its own. MetaSync is what SoulSync installs can
-                choose to plug into: two shared networks that make every connected library smarter, while no
-                install ever gives up control of its own data.</p>
+            <p class="hero-lede">SoulSync works completely on its own. MetaSync is the small companion program
+                installs can <strong>choose</strong> to plug in: it connects your SoulSync to shared networks
+                that make every connected library smarter, while no install ever gives up control of its own
+                data.</p>
+            <div class="hero-actions">
+                <a href="https://metasync.ssync.net" class="hero-cta">Get a pool key</a>
+                <a href="#charts" class="cta-ghost">See the charts</a>
+            </div>
+            <div class="charts-panel reveal">
+                <div class="charts-panel-head">
+                    <span class="charts-panel-title">Charts</span>
+                    <span class="charts-panel-week">Updated weekly</span>
+                </div>
+                <div class="chart-row">
+                    <div class="chart-cover cover-a"></div>
+                    <div class="chart-meta">
+                        <div class="chart-name">Trending &middot; from ListenBrainz</div>
+                        <div class="chart-sub">Seed chart &middot; public listening data</div>
+                    </div>
+                    <span class="chart-count">46 tracks</span>
+                </div>
+                <div class="chart-row">
+                    <div class="chart-cover cover-b"></div>
+                    <div class="chart-meta">
+                        <div class="chart-name">Just Landed &middot; from ListenBrainz</div>
+                        <div class="chart-sub">Seed chart &middot; public listening data</div>
+                    </div>
+                    <span class="chart-count">44 tracks</span>
+                </div>
+                <div class="chart-row">
+                    <div class="chart-cover cover-c"></div>
+                    <div class="chart-meta">
+                        <div class="chart-name">Trending: 2020s &middot; from ListenBrainz</div>
+                        <div class="chart-sub">Seed chart &middot; decade edition</div>
+                    </div>
+                    <span class="chart-count">34 tracks</span>
+                </div>
+                <div class="chart-row">
+                    <div class="chart-cover cover-d"></div>
+                    <div class="chart-meta">
+                        <div class="chart-name">Top Tracks &middot; from ListenBrainz</div>
+                        <div class="chart-sub">Seed chart &middot; all-time favourites</div>
+                    </div>
+                    <span class="chart-count">50 tracks</span>
+                </div>
+                <p class="charts-panel-foot">Live in every MetaSync node's Charts page today. The community's
+                    own charts take over once <strong>15 installs</strong> are reporting.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats-bar">
+        <div class="stats-container">
+            <div class="stat">
+                <span class="stat-number">8</span>
+                <span class="stat-label">Signal types counted</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+                <span class="stat-number">15</span>
+                <span class="stat-label">Installs to publish a chart</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+                <span class="stat-number">1</span>
+                <span class="stat-label">Report a week, for the week just ended</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+                <span class="stat-number">0</span>
+                <span class="stat-label">Reports stored. Counted on arrival, then gone</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- The networks -->
+    <section class="section features-section">
+        <div class="section-container">
+            <span class="section-eyebrow">One companion, two networks</span>
+            <h2 class="section-heading">What MetaSync Is</h2>
+            <p class="section-subheading">MetaSync runs next to your SoulSync, with its own interface on its
+                own port, and speaks to SoulSync only through SoulSync's API. It is the bridge to two opt-in
+                networks.</p>
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <span class="badge badge-live">Live</span>
+                    <h3>SIN: The SoulSync Intelligence Network</h3>
+                    <p>Installs that join SIN send one small report a week: anonymous counts of what got
+                        watchlisted, wishlisted, added, downloaded and kept, sent as MusicBrainz IDs, never
+                        names or files. The pool adds the counts up, and a release can only chart once at
+                        least 15 installs stand behind it.</p>
+                    <p>Charts are real playlists of around 50 tracks, led by each album's best song. They
+                        appear in MetaSync's own Charts page, ready to browse, and nothing is ever pushed
+                        into your SoulSync.</p>
+                    <div class="chart-family">
+                        <span>Trending</span> &middot; <span>Most Wanted</span> &middot; <span>Just
+                        Landed</span> &middot; <span>Loved &amp; Kept</span> &middot; <span>On Repeat</span>
+                        &middot; <span>Rising</span> &middot; <span>Breakout Artists</span>, plus genre and
+                        decade editions
+                    </div>
+                </div>
+                <div class="feature-card reveal">
+                    <span class="badge badge-live">Live</span>
+                    <h3>The Companion</h3>
+                    <p>MetaSync is free and open source, like SoulSync. Run it as a Python program on the same
+                        machine, or as a Docker container next to it.</p>
+                    <p>Installing it joins nothing. Connecting to a network is a separate, deliberate step,
+                        and MetaSync starts in dry run: it shows you the exact report it would send, line by
+                        line, before anything leaves your machine. Stop it, unplug it, or never install it,
+                        and SoulSync runs exactly as before.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <span class="badge badge-dev">In development</span>
+                    <h3>The Metadata Pool</h3>
+                    <p>The second network is still being built. Every SoulSync install spends real work
+                        resolving metadata: matching tracks, albums and artists across providers. The pool
+                        will let installs share that resolved metadata, keyed by the SoulID every track,
+                        album and artist already gets in SoulSync, so one install's work does not have to be
+                        redone by every other install.</p>
+                    <p>It will carry metadata only: never audio, never your files, and your own library's
+                        data will always win over the pool's. Not live yet.</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <div class="section-glow-divider"></div>
 
-    <!-- The two networks -->
-    <section class="section features-section">
+    <!-- Seed charts -->
+    <section id="charts" class="section">
         <div class="section-container">
-            <span class="section-eyebrow">Two networks, one companion</span>
-            <h2 class="section-heading">What MetaSync Is</h2>
-            <p class="section-subheading">MetaSync is a small companion program that runs next to your SoulSync,
-                with its own interface on its own port. It speaks to SoulSync only through SoulSync's API, and it
-                is the bridge to two opt-in networks.</p>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h3>The Metadata Pool</h3>
-                    <p>Every SoulSync install spends real work resolving metadata: matching tracks, albums and
-                        artists across providers. MetaSync lets installs pool that resolved metadata, keyed by the
-                        SoulID every track, album and artist already gets in SoulSync, so one install's work does
-                        not have to be redone by every other install. Records are checked against other installs
-                        before they are trusted, and your own library's data always wins over the pool's. The pool
-                        carries metadata only. Never audio, never your files.</p>
+            <span class="section-eyebrow">Live now</span>
+            <h2 class="section-heading">The Charts Page Isn't Empty</h2>
+            <p class="section-subheading">SIN's own charts need 15 reporting installs, and the network is
+                still gathering them. So the pool opens with seed charts built from ListenBrainz's public
+                listening data, named honestly so nobody mistakes them for the community's own taste. Same
+                shape as the real thing: around 50 tracks, best songs first, refreshed weekly. When the
+                community's counts take over, the seeds retire.</p>
+            <div class="steps-grid">
+                <div class="step-card reveal">
+                    <span class="step-number">46 TRACKS</span>
+                    <h3>Trending &middot; from ListenBrainz</h3>
+                    <p>What the wider listening world is playing right now, resolved to full albums with
+                        each album's five most popular tracks.</p>
                 </div>
-                <div class="feature-card">
-                    <h3>SIN: The SoulSync Intelligence Network</h3>
-                    <p>SIN pools anonymous taste signals from connected installs: which artists get watchlisted,
-                        which albums get wishlisted, land in libraries, get downloaded and kept, and which releases
-                        people are still hunting for. Those counts are combined across the whole network and
-                        turned into things your SoulSync can use: Trending, Most Wanted, Just Landed, Loved &amp;
-                        Kept, Rising and Breakout lists. SoulSync picks them up from MetaSync once a day, matches
-                        every track, and shows them as SoulSync Charts on its dashboard and Discover page: open one
-                        and it is a ready playlist, and nothing downloads until you press Sync &amp; download.
-                        Signals are counted once per install per item per
-                        week, and a release only appears once at least 15 installs stand behind it.</p>
+                <div class="step-card reveal">
+                    <span class="step-number">44 TRACKS</span>
+                    <h3>Just Landed &middot; from ListenBrainz</h3>
+                    <p>The newest arrivals making noise, the seed edition of the chart SIN will build from
+                        fresh additions across the network.</p>
                 </div>
-                <div class="feature-card">
-                    <h3>Yours to Run, Yours to Leave</h3>
-                    <p>MetaSync is free and open source, like SoulSync. Run it as a Python program on the same
-                        machine as SoulSync, or as a Docker container next to it. SoulSync itself never depends on
-                        it: stop MetaSync, unplug it, or never install it, and SoulSync runs exactly as before.
-                        Joining a network is a separate step inside MetaSync, never a side effect of installing
-                        it.</p>
+                <div class="step-card reveal">
+                    <span class="step-number">50 TRACKS</span>
+                    <h3>Top Tracks &middot; from ListenBrainz</h3>
+                    <p>All-time favourites, plus a Trending: 2020s decade edition at 34 tracks. Editions
+                        only publish when they add something their parent chart doesn't already say.</p>
                 </div>
             </div>
         </div>
@@ -169,39 +641,39 @@
     <div class="section-glow-divider"></div>
 
     <!-- How to connect -->
-    <section id="connect" class="section">
+    <section id="connect" class="section features-section">
         <div class="section-container">
             <span class="section-eyebrow">Getting connected</span>
             <h2 class="section-heading">How to Connect</h2>
             <p class="section-subheading">Three steps. The first connects MetaSync to your SoulSync. Only the
                 third one joins a network.</p>
             <div class="steps-grid">
-                <div class="step-card">
+                <div class="step-card reveal">
                     <span class="step-number">STEP 1</span>
-                    <h3>Install MetaSync and connect it to your SoulSync</h3>
+                    <h3>Connect MetaSync to your SoulSync</h3>
                     <p>Run MetaSync next to your SoulSync and open its interface. In SoulSync, go to Settings,
-                        Advanced, MetaSync and press Connect: SoulSync finds MetaSync and shows a pairing code to
-                        approve on the MetaSync dashboard, and the two swap keys. Typing the keys by hand works
-                        too. MetaSync can now read your library through the API, and create playlists in it.
-                        Nothing has left your machine.</p>
+                        Advanced, MetaSync and press Connect: SoulSync finds MetaSync, shows a pairing code
+                        to approve on the MetaSync dashboard, and the two swap keys. Typing the keys by hand
+                        works too. Nothing has left your machine.</p>
                 </div>
-                <div class="step-card">
+                <div class="step-card reveal">
                     <span class="step-number">STEP 2</span>
                     <h3>Get a pool key</h3>
-                    <p>Sign in at the MetaSync portal, metasync.ssync.net, and create a key. It is shown once; the
-                        portal keeps only its fingerprint. That key is how the pool knows a real account is
-                        connecting. It can be regenerated or revoked at any time, and revoking it cuts that
-                        install off on its very next request without affecting anyone else.</p>
+                    <p>Sign in at the MetaSync portal, <a href="https://metasync.ssync.net"
+                            target="_blank" rel="noopener noreferrer">metasync.ssync.net</a>, and create a
+                        key. It is shown once; the portal keeps only its fingerprint. That key is how the pool
+                        knows a real account is connecting. Regenerate or revoke it at any time: revoking
+                        cuts that install off on its very next request, without affecting anyone else.</p>
                 </div>
-                <div class="step-card">
+                <div class="step-card reveal">
                     <span class="step-number">STEP 3</span>
                     <h3>Join the pool, and approve your MetaSync</h3>
-                    <p>Paste your key into SoulSync's MetaSync section (or MetaSync's Pools page). The first time
-                        MetaSync presents it, the portal asks you to approve that MetaSync by its fingerprint: from
-                        then on the key works only from that one install, so a copied key is useless anywhere
-                        else. MetaSync starts in dry run and shows you the exact report it would send, so you can
-                        read every line yourself. Turn dry run off and it sends one report a week and keeps the
-                        network's charts ready for your SoulSync to show.</p>
+                    <p>Paste your key into SoulSync's MetaSync section, or add the pool on MetaSync's Pools
+                        page. The first time MetaSync presents it, the portal asks you to approve that
+                        MetaSync by its fingerprint: from then on the key works only from that one install,
+                        so a copied key is useless anywhere else. MetaSync starts in dry run, so you can read
+                        the exact report yourself. Turn it off, and it sends one report a week for the week
+                        just ended.</p>
                 </div>
             </div>
         </div>
@@ -210,40 +682,61 @@
     <div class="section-glow-divider"></div>
 
     <!-- Privacy -->
-    <section class="section features-section">
+    <section class="section">
         <div class="section-container">
             <span class="section-eyebrow">Privacy</span>
             <h2 class="section-heading">What Leaves Your Machine, and What Never Does</h2>
-            <p class="section-subheading">SIN runs on counts, not on your data. This is the whole list of what a
-                weekly SIN report contains, for the week that just ended: MusicBrainz IDs for artists you
-                watchlisted, and releases you wishlisted, added, downloaded, kept for two weeks, or are still
-                hunting for, each counted once. Two more are optional and off until you switch them on:
-                albums you downloaded and later removed, and albums you played at least three different
-                tracks from (your top 50 at most). A report is a week of events, never your library: a week
-                with hundreds of imports is a migration, and is held back rather than sent.</p>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h3>Never Collected</h3>
-                    <p>No listening history: the optional listening signal is a yes or no per album per week, with
-                        no play counts, no play times and no track names, and nothing from a SoulSync profile that
-                        keeps its own listening history. No file paths or library listings. No artist or album
-                        names as text, only IDs. No usernames, and no tracking of who reported what: your key
-                        checks you in at the door, and the report is counted the moment it arrives and never
-                        stored. What the pool keeps is a tally per album, not your report.</p>
+            <p class="section-subheading">SIN runs on counts, not on your data. A report covers the week that
+                just ended, and a week with hundreds of imports is a migration, not taste: bulk weeks are
+                held back rather than sent.</p>
+            <div class="privacy-grid">
+                <div class="privacy-panel reveal">
+                    <h3>A report contains</h3>
+                    <ul class="privacy-yes">
+                        <li><strong>MusicBrainz IDs</strong> for artists you watchlisted that week</li>
+                        <li><strong>Release IDs</strong> you wishlisted, added, downloaded, kept for two
+                            weeks, or are still hunting for, each counted once</li>
+                        <li>Albums you downloaded and later removed <span class="opt">Optional, off by
+                                default</span></li>
+                        <li>Albums you played at least three different tracks from, top 50 at most <span
+                                class="opt">Optional, off by default</span></li>
+                    </ul>
                 </div>
-                <div class="feature-card">
+                <div class="privacy-panel reveal">
+                    <h3>It never contains</h3>
+                    <ul class="privacy-no">
+                        <li><strong>Your identity.</strong> Your key checks you in at the door; the report
+                            itself carries no name, account or install ID</li>
+                        <li><strong>Listening history.</strong> The optional listening signal is a yes or no
+                            per album: no play counts, no times, no track names, and nothing from profiles
+                            that keep their own history</li>
+                        <li><strong>Your library.</strong> No file paths, no library listings, no artist or
+                            album names as text, no audio, ever</li>
+                        <li><strong>A stored report.</strong> There isn't one. Counting happens the moment a
+                            report arrives, and the pool keeps only the tally per release</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card reveal">
                     <h3>Preview Before It Sends</h3>
                     <p>MetaSync shows you the exact report before the first send, and the latest report is
-                        always one click away in its interface. If you do not like what you see, do not join the
-                        pool, or leave it. Leaving takes effect immediately; the pool keeps only the anonymous
-                        counts already combined into past weeks.</p>
+                        always one click away in its interface. If you do not like what you see, do not join
+                        the pool, or leave it. Leaving takes effect immediately; the pool keeps only the
+                        anonymous counts already combined into past weeks.</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card reveal">
+                    <h3>Keys That Only Work From Home</h3>
+                    <p>A pool key is exchanged for short-lived, signed access tokens, and it only works from
+                        the one MetaSync you approved by fingerprint. Copy the key anywhere else and it is
+                        useless. Revoke it, and every token dies on the very next request.</p>
+                </div>
+                <div class="feature-card reveal">
                     <h3>Only Official Playlists Are Official</h3>
-                    <p>The global playlists everyone receives are published by the network itself, from the
-                        combined counts. Individual installs can only send their own signals and pull the
-                        finished playlists down. Nobody can edit the shared lists, inject tracks into them, or
-                        publish on anyone else's behalf.</p>
+                    <p>The shared playlists are published by the network itself, from the combined counts.
+                        Individual installs can only send their own signals and pull the finished playlists
+                        down. Nobody can edit the shared lists, inject tracks into them, or publish on
+                        anyone else's behalf.</p>
                 </div>
             </div>
         </div>
@@ -252,16 +745,52 @@
     <div class="section-glow-divider"></div>
 
     <!-- Status -->
-    <section class="section">
+    <section class="section features-section">
         <div class="section-container">
             <span class="section-eyebrow">Status</span>
             <h2 class="section-heading">Where This Stands</h2>
-            <div class="status-note">
-                <strong>MetaSync and SIN are in public beta.</strong> The SIN pool and the account portal are
-                live, and the first installs are reporting. A list only publishes once at least 15 installs
-                report the same release in a week, so right now the network is gathering its founding
-                installs: early testers are exactly what it needs. The rules above are on record here, and
-                the full data map is in the MetaSync repository.
+            <p class="section-subheading">Public beta, honestly labelled. The full data map, every signal and
+                every rule, is in the <a class="install-link" href="https://github.com/Nezreka/MetaSync"
+                    target="_blank" rel="noopener noreferrer">MetaSync repository</a>.</p>
+            <div class="status-grid">
+                <div class="status-col status-live reveal">
+                    <span class="badge badge-live">Live now</span>
+                    <ul>
+                        <li><strong>The SIN pool</strong>, counting weekly reports on arrival</li>
+                        <li><strong>The portal</strong> at metasync.ssync.net, issuing pool keys</li>
+                        <li><strong>Seed charts</strong> from ListenBrainz, refreshed weekly</li>
+                        <li><strong>Daily automated composing</strong>, so charts publish without anyone
+                            pressing a button</li>
+                        <li><strong>Pairing</strong> from SoulSync's Settings, Advanced, MetaSync</li>
+                    </ul>
+                </div>
+                <div class="status-col status-wait reveal">
+                    <span class="badge badge-dev">Gathering</span>
+                    <ul>
+                        <li><strong>Founding installs.</strong> Community charts publish the first week 15
+                            installs report the same release</li>
+                        <li><strong>On Repeat</strong>, the listening chart, needs its own crowd of
+                            installs that switch the optional signal on</li>
+                        <li><strong>Genre and decade editions</strong> of the community charts, once the
+                            counts are deep enough to split</li>
+                    </ul>
+                </div>
+                <div class="status-col status-dev reveal">
+                    <span class="badge badge-dev">In development</span>
+                    <ul>
+                        <li><strong>The metadata pool</strong>: shared SoulID records, checked before they
+                            are trusted</li>
+                        <li><strong>Charts inside SoulSync's Discover page</strong>, browsable without
+                            leaving SoulSync</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="cta-band reveal">
+                <h3>Be one of the first 15.</h3>
+                <p>The charts switch from seeds to the community's own taste the week 15 installs are
+                    reporting. Early testers are exactly what the network needs, and the report your install
+                    sends is one you can read first, in full, before it goes anywhere.</p>
+                <a href="https://metasync.ssync.net" class="hero-cta">Get a pool key</a>
             </div>
         </div>
     </section>
@@ -284,12 +813,26 @@
                 <p class="footer-text"><a href="../#install" class="footer-link">Install</a> &middot;
                     <a href="../#faq" class="footer-link">FAQ</a> &middot;
                     <a href="/metasync/" class="footer-link">MetaSync</a> &middot;
+                    <a href="https://github.com/Nezreka/MetaSync" target="_blank"
+                        rel="noopener noreferrer" class="footer-link">MetaSync on GitHub</a> &middot;
                     <a href="https://github.com/Nezreka/SoulSync" target="_blank"
                         rel="noopener noreferrer" class="footer-link">GitHub</a>
                 </p>
             </div>
         </div>
     </footer>
+
+    <script>
+        // Scroll reveal, same behaviour as the main site's script.js
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    </script>
 
 </body>
 
