@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - MetaSync</title>
+    <meta name="description"
+        content="How MetaSync handles your data: what the portal receives when you sign in, how API keys are stored, how SIN counts anonymous signals, and why the metadata network's servers store no library metadata.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.ssync.net/privacy/">
+    <meta property="og:site_name" content="SoulSync">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="Privacy Policy - MetaSync">
+    <meta property="og:description"
+        content="What the MetaSync portal, SIN, and the metadata network do with your data, in plain language.">
+    <meta property="og:image" content="https://www.ssync.net/assets/trans.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="SoulSync logo">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.ssync.net/privacy/">
+    <meta name="theme-color" content="#000000">
+    <link rel="icon" href="../assets/trans.png" type="image/png">
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Page-local: legal document layout */
+        .legal {
+            max-width: 760px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .legal .effective {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin-bottom: 2.5rem;
+        }
+
+        .legal h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--white);
+            margin: 2.5rem 0 0.8rem;
+        }
+
+        .legal p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .legal p strong {
+            color: var(--gray-light);
+            font-weight: 600;
+        }
+
+        .legal a {
+            color: var(--white);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .legal-hero {
+            padding-bottom: 1rem;
+        }
+
+        .legal-hero .section-heading {
+            text-align: left;
+        }
+
+        .legal-hero .hero-lede {
+            max-width: 760px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="../#features" class="nav-link">Music</a></li>
+                <li><a href="../#video" class="nav-link">Video</a></li>
+                <li><a href="../#integrations" class="nav-link">Integrations</a></li>
+                <li><a href="/metasync/" class="nav-link">MetaSync</a></li>
+                <li><a href="../#install" class="nav-link">Install</a></li>
+                <li><a href="../#faq" class="nav-link">FAQ</a></li>
+                <li><a href="https://github.com/Nezreka/SoulSync" target="_blank" rel="noopener noreferrer"
+                        class="nav-link">GitHub</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero legal-hero">
+        <div class="hero-content">
+            <div class="legal">
+                <span class="section-eyebrow">MetaSync</span>
+                <h1 class="section-heading">Privacy Policy</h1>
+                <p class="effective">Effective date: October 29, 2026</p>
+                <p>MetaSync is part of the SoulSync project: free, open-source software by Broque Thomas.
+                    This policy covers the online services: the MetaSync portal at
+                    <a href="https://metasync.ssync.net" target="_blank"
+                        rel="noopener noreferrer">metasync.ssync.net</a>, SIN (the SoulSync Intelligence
+                    Network), and the metadata network relay. SoulSync and MetaSync themselves run on
+                    your own machine, under your control; this policy is about the services they can
+                    connect to.</p>
+
+                <h2>Signing in to the portal</h2>
+                <p>Sign-in is handled by Google or GitHub. When you sign in, that provider sends us your
+                    <strong>name, email address, and profile picture</strong>. We use them only to create
+                    and run your portal account and to show you your keys. We never receive or store your
+                    Google or GitHub password.</p>
+
+                <h2>API keys</h2>
+                <p>When you create a key in the portal, the raw key is <strong>shown to you once</strong>.
+                    We store only a SHA-256 fingerprint (a hash) of it, so the key itself can never be
+                    read back or recovered from our database. You can revoke or delete your keys in the
+                    portal at any time. A key works only from the node you bind it to, and unbinding a
+                    node revokes that node's access, effective on its next request.</p>
+
+                <h2>SIN: anonymous counts, opt-in only</h2>
+                <p>Joining SIN is optional and off by default. A node that joins sends one report per week
+                    for the week that just ended: <strong>anonymous counts of library activity
+                    signals</strong>, for example how many releases were wishlisted, added, downloaded,
+                    or kept, identified by MusicBrainz IDs rather than names. Reports are authenticated
+                    with your node's key so the pool knows a real node is reporting, but the counts are
+                    not attached to your portal account, and reports are counted on arrival rather than
+                    stored. A count is published only once <strong>at least 15 different nodes</strong>
+                    have reported the same item, so published data cannot be traced back to a single
+                    install. Nothing is sold, and nothing is shared with advertisers. SIN exists to build
+                    community charts that enrich SoulSync itself.</p>
+
+                <h2>The metadata network</h2>
+                <p>The metadata network's servers <strong>store no library metadata</strong>. The relay
+                    is a switchboard: it forwards signed questions between nodes that are online and
+                    returns answers that are sealed (encrypted to the node that asked), so the relay
+                    cannot read the answers and keeps no message content. The answers come from other
+                    users' nodes, out of their own libraries, and your own node decides which questions
+                    it answers and which answers it trusts.</p>
+
+                <h2>Cookies</h2>
+                <p>The portal uses only the cookies needed to keep you signed in. There are no
+                    advertising cookies and no third-party trackers.</p>
+
+                <h2>Keeping and deleting your data</h2>
+                <p>Your portal account holds your sign-in details and your key fingerprints. You can
+                    delete your keys, or your account, in the portal at any time. The anonymous SIN
+                    counts that have already been combined into past tallies cannot be separated back
+                    out; that is what makes them anonymous.</p>
+
+                <h2>Changes to this policy</h2>
+                <p>If this policy changes, the new version will be posted on this page with a new
+                    effective date.</p>
+
+                <h2>Contact</h2>
+                <p>Questions about any of this: <a
+                        href="mailto:broque.n.roll@gmail.com">broque.n.roll@gmail.com</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="section-container">
+            <div class="footer-content">
+                <a href="https://github.com/Nezreka/SoulSync" target="_blank" rel="noopener noreferrer"
+                    class="footer-github">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path
+                            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                    </svg>
+                    Nezreka/SoulSync
+                </a>
+                <p class="footer-text">Open source under the MIT license. Free forever. Built for self-hosters.</p>
+                <p class="footer-text"><a href="../#install" class="footer-link">Install</a> &middot;
+                    <a href="../#faq" class="footer-link">FAQ</a> &middot;
+                    <a href="/metasync/" class="footer-link">MetaSync</a> &middot;
+                    <a href="/privacy/" class="footer-link">Privacy</a> &middot;
+                    <a href="/terms/" class="footer-link">Terms</a> &middot;
+                    <a href="https://github.com/Nezreka/MetaSync" target="_blank"
+                        rel="noopener noreferrer" class="footer-link">MetaSync on GitHub</a> &middot;
+                    <a href="https://github.com/Nezreka/SoulSync" target="_blank"
+                        rel="noopener noreferrer" class="footer-link">GitHub</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
