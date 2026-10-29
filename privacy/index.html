@@ -118,25 +118,29 @@
                 <p>Sign-in is handled by Google or GitHub. When you sign in, that provider sends us your
                     <strong>name, email address, and profile picture</strong>. We use them only to create
                     and run your portal account and to show you your keys. We never receive or store your
-                    Google or GitHub password.</p>
+                    Google or GitHub password, and we do not store their access tokens.</p>
 
                 <h2>API keys</h2>
                 <p>When you create a key in the portal, the raw key is <strong>shown to you once</strong>.
-                    We store only a SHA-256 fingerprint (a hash) of it, so the key itself can never be
-                    read back or recovered from our database. You can revoke or delete your keys in the
-                    portal at any time. A key works only from the node you bind it to, and unbinding a
-                    node revokes that node's access, effective on its next request.</p>
+                    We store a SHA-256 fingerprint (a hash) of it, plus its first few characters so
+                    you can tell your keys apart; the key itself can never be read back or recovered
+                    from our database. You can revoke your keys in the portal at any time; revoking
+                    stops the key from working, though its fingerprint record is kept. A key works
+                    only from the node you bind it to, and unbinding a node removes that node's
+                    access, effective on its next request.</p>
 
                 <h2>SIN: anonymous counts, opt-in only</h2>
                 <p>Joining SIN is optional and off by default. A node that joins sends one report per week
                     for the week that just ended: <strong>anonymous counts of library activity
                     signals</strong>, for example how many releases were wishlisted, added, downloaded,
-                    or kept, identified by MusicBrainz IDs rather than names. Reports are authenticated
+                    kept, or listened to, identified by MusicBrainz IDs rather than names (listening
+                    counts are a separate opt-in, off by default). Reports are authenticated
                     with your node's key so the pool knows a real node is reporting, but the counts are
                     not attached to your portal account, and reports are counted on arrival rather than
                     stored. A count is published only once <strong>at least 15 different nodes</strong>
-                    have reported the same item, so published data cannot be traced back to a single
-                    install. Nothing is sold, and nothing is shared with advertisers. SIN exists to build
+                    have reported the same item, which keeps published data from pointing back at any
+                    single install. Nothing is sold, and nothing is shared with advertisers. SIN exists
+                    to build
                     community charts that enrich SoulSync itself.</p>
 
                 <h2>The metadata network</h2>
@@ -152,10 +156,14 @@
                     advertising cookies and no third-party trackers.</p>
 
                 <h2>Keeping and deleting your data</h2>
-                <p>Your portal account holds your sign-in details and your key fingerprints. You can
-                    delete your keys, or your account, in the portal at any time. The anonymous SIN
-                    counts that have already been combined into past tallies cannot be separated back
-                    out; that is what makes them anonymous.</p>
+                <p>Your portal account holds your sign-in details and, for each key, its label, its
+                    first characters, its fingerprint, and when it was last used. For a key bound to
+                    one of your nodes, or a node asking to bind to it, it also holds that node's
+                    public key and fingerprint. You can
+                    revoke your keys in the portal at any time. To delete your account entirely, email
+                    <a href="mailto:broque.n.roll@gmail.com">broque.n.roll@gmail.com</a> and we will
+                    remove it. The anonymous SIN counts that have already been combined into past
+                    tallies cannot be separated back out; that is what makes them anonymous.</p>
 
                 <h2>Changes to this policy</h2>
                 <p>If this policy changes, the new version will be posted on this page with a new
